@@ -15,7 +15,7 @@ weight = 1
 
 2. 通用的 vps 设置和管理
 
-- [初建 VPS 的安全设置](/posts/2001-new-vps-setup)
+- [初建 VPS 的安全设置](/post/2001-new-vps-setup)
 - 常用 linux 命令
 - 网站服务器：Nginx
 - 购买域名、Cloudflare 配置、https/tls 设置

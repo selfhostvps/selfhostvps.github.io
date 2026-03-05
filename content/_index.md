@@ -8,20 +8,31 @@ weight = 1
 
 写作计划
 
+1. 基本概念
+
 - 自建 VPS 的用途
 - 常用 VPS 介绍
-- 如何快速自建梯子翻墙
+
+2. 通用的 vps 设置和管理
+
 - 初建 VPS 的安全设置
+- 常用 linux 命令
 - 网站服务器：Nginx
 - 购买域名、Cloudflare 配置、https/tls 设置
-- Docker 简介
+- Docker 简介和安装
+- 数据导出和备份
+
+3. 常用自建项目
+
+- 如何快速自建梯子翻墙
 - 自建 blog
 	- 非静态 blog：Wordpress
 	- 静态 blog：Hugo
-- 数据导出与备份
 - 常用自建项目
 	- RSS 阅读器：Miniflux
 	- 文章备份：Wallabag
 	- 联邦宇宙 Fediverse
+    - nextcloud
+    - 性能监测
 
 ## 大家有兴趣可以一起写啊！

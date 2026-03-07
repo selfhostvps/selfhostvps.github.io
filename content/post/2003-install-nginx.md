@@ -18,7 +18,7 @@ tags = [
 - Nginx 网络服务器
 - Docker 容器体系
 
-#### 1. 安装 Nginx 网络服务器
+## 1. 安装 Nginx 网络服务器
 
 ```
 # 安装 Nginx 网络服务器
@@ -35,7 +35,7 @@ sudo systemctl status nginx
 http://123.123.123.123
 ```
 
-#### 2. 安装 Docker
+## 2. 安装 Docker
 
 去看官网[安装文档](https://docs.docker.com/engine/install/ubuntu/)……通常新的机器，可以只执行 “Install using the apt repository” 的部分。
 

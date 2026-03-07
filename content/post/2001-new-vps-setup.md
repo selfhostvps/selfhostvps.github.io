@@ -90,7 +90,7 @@ ssh new_user_name@123.123.123.123
 sudo apt install ufw -y
 
 # 只允许这些端口接收互联网访问
-sudo ufw allow 22,80,443
+sudo ufw allow 22,80,443/tcp
 
 # 启动防火墙
 sudo ufw enable

@@ -2,6 +2,7 @@
 
 ## TODO
 
-- [ ] 文件标题
-- [ ] TOC
-- [ ] code copy button
+- [x] display post title
+- [x] TOC + background
+- [x] code copy button
+- [x] code fence overflow

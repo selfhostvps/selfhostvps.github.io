@@ -18,7 +18,24 @@ tags = [
 - Nginx 网络服务器
 - Docker 容器体系
 
-## 1. 安装 Nginx 网络服务器
+## 1. 一些本站常用的路径设置
+
+首先，为了以后写教程方便，在这里约定一些常用的文件夹的位置：在用户目录下创建几个文件夹，并把它们映射到根目录下。
+
+使用上一篇创建的用户（而不是 root）登录服务器后，执行：
+
+```
+mkdir ~/ADMIN ~/WEBSITES ~/DOCKERS ~/tmp
+sudo ln -s ~/ADMIN /ADMIN
+sudo ln -s ~/WEBSITES /WEBSITES
+sudo ln -s ~/DOCKERS /DOCKERS
+```
+
+- ~/ADMIN，管理用的程序，如 https 证书、日常维护用的脚本程序
+- ~/WEBSITES，直接放在 Nginx网络服务器下的各个网站
+- ~/DOCKERS，放置不同的 docker compose 项目
+
+## 2. 安装 Nginx 网络服务器
 
 ```
 # 安装 Nginx 网络服务器
@@ -35,7 +52,7 @@ sudo systemctl status nginx
 http://123.123.123.123
 ```
 
-## 2. 安装 Docker
+## 3. 安装 Docker
 
 去看官网[安装文档](https://docs.docker.com/engine/install/ubuntu/)……通常新的机器，可以只执行 “Install using the apt repository” 的部分。
 

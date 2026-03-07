@@ -116,7 +116,7 @@ sudo apt install fail2ban -y
 sudo dpkg-reconfigure tzdata
 ```
 
-给 VPS 设置一个别名
+给 VPS 设置一个别名，把 SHORT_NAME 改成你想要的名字
 
 ```
 sudo hostnamectl set-hostname SHORT_NAME

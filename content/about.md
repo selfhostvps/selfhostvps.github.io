@@ -2,6 +2,9 @@
 title = "About"
 menu = "main"
 weight = 90
+[params]
+  no_toc = true
+  no_date = true
 +++
 
 本站所有内容，均采用 [CC-0](https://creativecommons.org/publicdomain/zero/1.0/legalcode.zh-hans) 的知识共享协议，任何人可以自由地复制、传播、修改这些内容。

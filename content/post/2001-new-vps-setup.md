@@ -63,13 +63,17 @@ PermitRootLogin no
 AllowUsers new_user_name
 ```
 
-在 nano 编辑页面下，按 Ctrl + x 保存编辑后的文件，再按 y + 回车，确认保存并退回到命令行。输入
+在 nano 编辑页面下，按 Ctrl + x 保存编辑后的文件，再按 y + 回车，确认保存并退回到命令行。输入命令，重启 ssh 服务。
 
 ```
+# 重启 ssh 服务
+systemctl reload ssh
+
+# 如果上面的命令报错，可以尝试下面的命令：（早期版本的 Ubuntu 的服务的名字会有变化）
 systemctl restart sshd
 ```
 
-重启 ssh 服务。
+然后退出当前登录的用户：可以直接关闭程序窗口，也可以在命令行输入 logout 命令。
 
 再次使用你的电脑上的命令行（或 ssh 登录软件），使用新的用户登录 VPS。
 

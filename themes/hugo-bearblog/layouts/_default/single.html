@@ -1,18 +1,20 @@
 {{ define "main" }}
 
 <h1>{{ .Title }}</h1>
-<p>
-  <i>
+{{ if ne .Params.no_date true }}
+<p><i>
     <time datetime='{{ .Date.Format "2006-01-02" }}'>
       {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
     </time>
-  </i>
-</p>
+</i></p>
+{{ end }}
 
+{{ if ne .Params.no_toc true }}
 <div class="toc">
 <p>— 目录 —</p>
 {{ .TableOfContents }}
 </div>
+{{ end }}
 
 <content>
   {{ .Content }}

@@ -1,13 +1,12 @@
 +++
 title = "监控工具 Uptime Kuma"
-[params]
-  no_toc = true
-  no_date = true
-date = "2026-01-16"
+date = "2026-01-17"
 tags = [
     "monitor"
 ]
-date = "2026-01-17"
+[params]
+  no_toc = true
+  no_date = true
 +++
 
 Uptime Kuma 是一个开源免费的轻量级监控工具，可以随意添加要监控的网站，每隔一段时间，自动监测网站是否正常在线。

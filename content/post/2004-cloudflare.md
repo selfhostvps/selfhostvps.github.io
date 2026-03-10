@@ -11,7 +11,7 @@ tags = [
 
 （未写完）
 
-#### 1. 购买域名
+## 1. 购买域名
 
 本站非常不建议从国内的提供商（阿里、腾讯……）购买域名，光是实名验证就非常麻烦，且未来不确定会不会对域名持有者进行更多的折腾，总之后患无穷。
 
@@ -19,13 +19,13 @@ NameSilo（高性价比）、Dynadot、Porkbun、Namecheap 和 GoDaddy
 
 https://tld-list.com/tld/org
 
-#### 2. 注册 cloudflare 账号，添加你的域名
+## 2. 注册 cloudflare 账号，添加你的域名
 
 注册 cloudflare，添加你自己的域名，初期选择免费方案就足够了
 
 在添加域名的过程中，根据 cloudflare 的提示，在域名注册商的管理界面，把 NS（Name Server）改成 cloudflare 提供的两个地址。
 
-#### 3. 生成 cloudflare 的十年 TLS / https 证书
+## 3. 生成 cloudflare 的十年 TLS / https 证书
 
 登录 Cloudflare，在你的域名管理界面中，进入 SSL/TLS - Origin Server 界面。
 
@@ -42,3 +42,9 @@ nano /ADMIN/https-certs/all.example.com.public.pem
 # 编辑私钥文件
 nano /ADMIN/https-certs/all.example.com.private.key
 ```
+## 4. 更改 Cloudflare 的 SSL/TLS 连接模式
+
+登录 Cloudflare，在你的域名管理界面中，进入 SSL/TLS - Overview 界面。
+
+默认的 SSL/TLS encryption 模式，应该是 Automatic (Flexible), 点击 Configure，点击 Custom SSL/TLS 一栏下的 Select，选择 Full 模式，确认保存。
+

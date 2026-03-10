@@ -70,6 +70,11 @@ sudo ln -s /etc/nginx/sites-available/new_website.conf /etc/nginx/sites-enabled/
 sudo nano /etc/nginx/sites-available/new_website.conf
 ```
 
+刷新 Nginx 服务
+```
+sudo systemctl reload nginx
+```
+
 ## 4. 完成
 
 此时，访问 https://monitor.example.com ，就可以看到你部署好的网站服务了。

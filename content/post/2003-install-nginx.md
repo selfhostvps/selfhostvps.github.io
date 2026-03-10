@@ -29,6 +29,7 @@ mkdir ~/ADMIN ~/WEBSITES ~/DOCKERS ~/tmp
 sudo ln -s ~/ADMIN /ADMIN
 sudo ln -s ~/WEBSITES /WEBSITES
 sudo ln -s ~/DOCKERS /DOCKERS
+mkdir ~/ADMIN/https-certs
 ```
 
 - ~/ADMIN，管理用的程序，如 https 证书、日常维护用的脚本程序

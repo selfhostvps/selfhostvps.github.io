@@ -47,7 +47,7 @@ services:
     volumes:
       - ./vw-data/:/data/
     ports:
-      - 127.0.0.1:8000:80
+      - 5502:80
 ```
 
 

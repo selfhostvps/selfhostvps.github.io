@@ -42,7 +42,7 @@ server {
 
     listen 443 ssl;
     ssl_certificate /ADMIN/https-certs/all.example.com.public.pem;
-    ssl_certificate_key /ADMIN/https-certs/all.example.com.private.pem;
+    ssl_certificate_key /ADMIN/https-certs/all.example.com.private.key;
 
 	location / {
 		# 基础代理设置

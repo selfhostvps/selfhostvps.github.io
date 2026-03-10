@@ -40,5 +40,5 @@ https://tld-list.com/tld/org
 nano /ADMIN/https-certs/all.example.com.public.pem
 
 # 编辑私钥文件
-nano /ADMIN/https-certs/all.example.com.private.pem
+nano /ADMIN/https-certs/all.example.com.private.key
 ```

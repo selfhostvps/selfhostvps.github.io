@@ -5,6 +5,7 @@
     --font-secondary: Verdana, sans-serif;
     --font-scale: 1em;
     --background-color: #fff;
+    --background-color-muted: #f6f8fa;
     --heading-color: #222;
     --text-color: #444;
     --link-color: #3273dc;
@@ -15,6 +16,7 @@
   @media (prefers-color-scheme: dark) {
     :root {
       --background-color: #01242e;
+      --background-color-muted: #151b23;
       --heading-color: #eee;
       --text-color: #ddd;
       --link-color: #8cc2dd;
@@ -38,7 +40,7 @@
   }
 
   .toc {
-    background-color: #f6f8fa;
+    background-color: var(--background-color-muted);
     overflow: auto;
   }
 
@@ -100,7 +102,7 @@
   }
 
   pre {
-    background-color: #f6f8fa;
+    background-color: var(--background-color-muted);
     overflow-x: auto;
     padding: 0.83em 0;
   }

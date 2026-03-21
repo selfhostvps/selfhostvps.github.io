@@ -1,5 +1,5 @@
 +++
-title = "NextChat 个人 AI 浏览器界面"
+title = "NextChat，个人 AI 浏览器界面"
 date = "2026-03-08"
 tags = [
     "AI"
@@ -66,8 +66,8 @@ server {
     ssl_certificate /ADMIN/https-certs/all.example.com.public.pem;
     ssl_certificate_key /ADMIN/https-certs/all.example.com.private.key;
 
-	location / {
-		# 基础代理设置
+    location / {
+        # 基础代理设置
         proxy_pass http://localhost:5503;
 
         proxy_set_header Host $host;
@@ -89,7 +89,7 @@ server {
         tcp_nopush on;  # 开启TCP NOPUSH选项，禁止Nagle算法
         tcp_nodelay on;  # 开启TCP NODELAY选项，禁止延迟ACK算法
         keepalive_timeout 300;  # 设定keep-alive超时时间为65秒
-	}
+    }
 }
 ```
 

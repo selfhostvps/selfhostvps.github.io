@@ -2,8 +2,11 @@
 title = "新购买 VPS 的初始登录和安全配置"
 date = "2026-01-16"
 tags = [
-    "VPS","security"
+    "VPS","security","setup"
 ]
+[params]
+  no_toc = false
+  no_date = true
 +++
 
 这篇文章会介绍一些，在刚刚购买 VPS 后，需要做的初始设置。此刻，你刚刚购买了 VPS 服务器，你拥有

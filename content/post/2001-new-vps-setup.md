@@ -158,3 +158,8 @@ Host *
     ServerAliveCountMax 30
     TCPKeepAlive yes
 ```
+
+一些专门的 ssh 软件，如 Tabby、VSCode，也是在使用系统的 ssh 设置；另一些软件则有自己的专门设置，譬如：
+
+- PuTTY：Connection - Seconds between keepalives，设置为 30 或 60 秒，并勾选 Enable TCP keepalives
+- MobaXterm：Settings - Configuration - SSH，勾选 SSH keepalive，并取消 Close terminal on idle

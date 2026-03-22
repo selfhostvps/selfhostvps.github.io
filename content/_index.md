@@ -26,8 +26,8 @@ weight = 1
 
 3. 常用自建项目
 
-- 如何快速自建梯子翻墙
-- 一个基本的 Nginx 网站的部署
+- [如何快速自建梯子翻墙](https://selfhostvps.github.io/post/3001-selfhost-gfw/)
+- [一个基本的 Nginx 网站的部署](https://selfhostvps.github.io/post/2005-service-deploy-example/)
 - 自建 blog
 	- 非静态 blog：Wordpress
 	- 静态 blog：Hugo
@@ -36,13 +36,14 @@ weight = 1
 	- 文章备份：Wallabag
 	- 联邦宇宙 Fediverse / mastodon
     - nextcloud
-    - 性能监测 uptime-kuma
+    - [性能监测 uptime-kuma](https://selfhostvps.github.io/post/5501-uptime-kuma/)
     - rsshub
     - 日记 memos
     - 任务管理 vikunja
     - gitea
+    - [NextChat，个人 AI 浏览器界面](https://selfhostvps.github.io/post/5503-nextchat/)
     - webdav
-    - 密码管理 bitwarden
+    - [密码管理软件 Bitwarden / Vaultwarden](https://selfhostvps.github.io/post/5502-bitwarden-vaultwarden/)
     - 聊天软件 Matrix
 
 ## 大家有兴趣可以一起写啊！

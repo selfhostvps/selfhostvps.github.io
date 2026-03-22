@@ -144,3 +144,14 @@ sudo hostnamectl set-hostname SHORT_NAME
 无论使用命令行的 ssh 命令，还是 PuTTY 之类的 ssh 软件，一些验证密钥会保存在你使用的电脑上。如果别人侵入你的电脑，就可以得知你的 VPS 的 ip 地址（但是，在密码登录的模式下，对方不知道密码，并不能侵入你的 VPS）。通常可以在 user_HOME/.ssh/known_hosts 把历史密钥删除。
 
 另外，如果你把 VPS 重装了系统，再次用 ssh user@ip 登录时，会显示密钥验证错误。这时，同样需要在上述位置删掉之前的密钥。
+
+### ssh 隔一段时间自动断线的解决方案
+
+如果是从命令行（Terminal）直接运行 ssh 命令连接，只需要在客户端配置文件中，添加自动连接的命令。配置文件（Win、Mac、Linux）通常位于用户目录的 ~/.ssh/config，如果不存在，直接创建即可。
+
+```
+Host *
+    ServerAliveInterval 60
+    ServerAliveCountMax 30
+    TCPKeepAlive yes
+```

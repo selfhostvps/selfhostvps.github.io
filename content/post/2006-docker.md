@@ -42,7 +42,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 ### 本站的一些约定设置
 
 ```
-# 创建 docker 网络 network_expose，提前占据内部 ip 地址 172.18.120.*，[详见](#%E8%AE%A9%E4%B8%80%E4%BA%9B%E5%AE%B9%E5%99%A8%E5%8F%AF%E4%BB%A5%E4%BB%8E%E5%A4%96%E9%83%A8%E8%AE%BF%E9%97%AE)
+# 创建 docker 网络 network_expose，提前占据内部 ip 地址 172.18.120.*
 sudo docker network create --subnet=172.18.120.0/24 network_expose
 
 # 将 network_expose 对应的 docker 容器 ip 加入防火墙允许范围
@@ -52,6 +52,8 @@ sudo ufw route allow proto udp from any to 172.18.120.0/24
 # 创建 docker 网络 network_database，为需要数据库的容器共享内部网络
 sudo docker network create network_database
 ```
+
+关于预设 network_expose 的目的，详见后文：[让一些容器可以从外部访问](#%E8%AE%A9%E4%B8%80%E4%BA%9B%E5%AE%B9%E5%99%A8%E5%8F%AF%E4%BB%A5%E4%BB%8E%E5%A4%96%E9%83%A8%E8%AE%BF%E9%97%AE)
 
 ## Docker 暴露端口的问题
 

@@ -42,7 +42,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 ### 本站的一些约定设置
 
 ```
-# 创建 docker 网络 network_expose，提前占据内部 ip 地址 172.18.120.*，详见
+# 创建 docker 网络 network_expose，提前占据内部 ip 地址 172.18.120.*，[详见](#%E8%AE%A9%E4%B8%80%E4%BA%9B%E5%AE%B9%E5%99%A8%E5%8F%AF%E4%BB%A5%E4%BB%8E%E5%A4%96%E9%83%A8%E8%AE%BF%E9%97%AE)
 sudo docker network create --subnet=172.18.120.0/24 network_expose
 
 # 将 network_expose 对应的 docker 容器 ip 加入防火墙允许范围
@@ -105,7 +105,7 @@ sudo reboot
 
 ### 让一些容器可以从外部访问
 
-本节的命令已经在前面执行过了，此处只是介绍原理。
+本节的命令已经[在前面执行过了](#%E6%9C%AC%E7%AB%99%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E8%AE%BE%E7%BD%AE)，此处只是介绍原理。
 
 进行上文的防火墙配置，解决了 docker 向外暴露端口的问题。但随之而来的问题是，一些我们本来就打算向外暴露端口的容器，如自建的 reality 翻墙程序、bt 下载程序……也统统不能都访问了。
 

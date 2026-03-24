@@ -30,6 +30,13 @@ MariaDB 保持了对 MySQL 的兼容性，甚至在一些功能上更加便利�
 └── docker-compose.yml # 配置文件
 ```
 
+按照本站 [docker 一文的设定](/post/2006-docker/#%E6%9C%AC%E7%AB%99%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BA%A6%E5%AE%9A%E8%AE%BE%E7%BD%AE)，预先创建 docker 网络，让其它容器和外部网站，共享同一个数据库系统。
+
+```
+# 如果还没有运行过的话，先创建 docker 网络，为需要数据库的容器共享内部网络
+sudo docker network create network_database
+```
+
 **docker-compose.yml**
 
 ```

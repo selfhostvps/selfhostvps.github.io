@@ -37,7 +37,7 @@ MariaDB 保持了对 MySQL 的兼容性，甚至在一些功能上更加便利�
 sudo docker network create network_database
 ```
 
-**docker-compose.yml**
+**docker-compose.yml**，本站使用 MariaDB 11.4 的[长期支持版本](https://mariadb.com/resources/blog/announcing-yearly-lts-releases-for-mariadb-community-server/)。
 
 ```
 services:

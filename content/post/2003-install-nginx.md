@@ -15,7 +15,7 @@ tags = [
 
 初期需要安装的软件包括
 
-- Nginx 网络服务器
+- Nginx 网络服务器 + php 脚本语言
 - Docker 容器体系
 
 ## 1. 一些本站常用的路径设置
@@ -53,30 +53,37 @@ sudo systemctl status nginx
 http://123.123.123.123
 ```
 
-## 3. 安装 Docker
+## 3. 安装 php
 
-去看官网[安装文档](https://docs.docker.com/engine/install/ubuntu/)……通常新的机器，可以只执行 “Install using the apt repository” 的部分。
+PHP 是一个通用[开源的脚本语言](https://zh.wikipedia.org/wiki/PHP)，是很多网络项目使用的编程语言，如 Wordpress blog。因为 PHP 和普通 HTML 的嵌入搭配很好，可以被 Nginx 网络服务器直接调用，有时比放在 docker 容器中更加便利。 
+
+本站目前安装的是 [php 8.4 的版本](https://www.php.net/supported-versions.php)，
 
 ```
-# 添加 Docker 官方密钥
-sudo apt update
-sudo apt install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
+# 在 VPS 的更新系统中加入 PHP 的订阅地址，执行后需要按回车键确认
+sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 
-# 让自动安装工具识别 Docker
-sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
-Types: deb
-URIs: https://download.docker.com/linux/ubuntu
-Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
-Components: stable
-Signed-By: /etc/apt/keyrings/docker.asc
-EOF
-
+# 更新系统
 sudo apt update
 
-# 安装 Docker
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# 安装 php 的基本功能
+sudo apt install -f php8.4-cli php8.4-fpm
+
+# 安装 php 的常用扩展支持
+sudo apt install -f php8.4-common php8.4-{bcmath,bz2,curl,gd,gmp,intl,mbstring,opcache,readline,xml,zip}
+
+# 安装 php 的数据库支持（也可以根据需要，只选择其中的一两项）
+sudo apt install -f php8.4-{mysql,pgsql,sqlite3}
 ```
 
+### 更换默认的 php 版本
+
+VPS 内可同时安装多个版本的 php，可以执行下面的命令，切换默认的 php 版本：
+
+```
+sudo update-alternatives --config php
+```
+
+## 4. 安装 Docker
+
+此处内容已挪至专门的一篇，[关于 docker 的更详细的安装和设置](/post/2006-docker/)。

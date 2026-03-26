@@ -126,6 +126,9 @@ sudo docker network create --subnet=172.18.120.0/24 network_expose
 # 将 network_expose 对应的 docker 容器 ip 加入防火墙允许范围
 sudo ufw route allow proto tcp from any to 172.18.120.0/24
 sudo ufw route allow proto udp from any to 172.18.120.0/24
+
+# 重启防火墙
+sudo systemctl restart ufw
 ```
 
 ps，因为本站教程是基于新安装的 vps，所以 172.18.120.* 的地址，应该还是空闲的。如果在创建 docker 网络时，遇到 Pool overlaps with other one on this address space 的报错信息，说明这段 ip 地址已经被占用，可以运行下面的命令，寻找空闲的 ip 地址。

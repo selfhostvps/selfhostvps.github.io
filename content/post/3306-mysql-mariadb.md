@@ -104,8 +104,8 @@ CREATE USER 'vps_mariadb_user'@'%' IDENTIFIED VIA mysql_native_password USING PA
 创建一个新的数据库
 
 ```
-# 创建新的数据库 database_new_1
-CREATE DATABASE database_new_1;
+# 创建新的数据库 database_new_1，默认使用 utf8 的国际多语言支持
+CREATE DATABASE database_new_1 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
 
 将这个数据库的使用权限，赋给你新创建的用户
@@ -167,8 +167,8 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
 # 删除用户
 DROP USER user_name_example;
 
-# 创建新的数据库
-CREATE DATABASE database_new_1;
+# 创建新的数据库，默认使用 utf8 的国际多语言支持
+CREATE DATABASE database_new_1 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 # 删除数据库
 DROP DATABASE database_new_1;

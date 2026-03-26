@@ -38,6 +38,7 @@ Adminer 是一个单独的 .php 文件，所以，可以放在 VPS 外层网络�
 # 在任何已有网站的下创建任意子目录，用来放置 adminer 程序
 mkdir -p /WEBSITES/any_website.example.com/any/path/to
 
+# 从官方服务器下载 adminer 程序到网站目录，改名为 index.php 或任意 隐秘名称.php
 wget -O /WEBSITES/any_website.example.com/any/path/to/index.php https://github.com/vrana/adminer/releases/download/v5.4.2/adminer-5.4.2.php
 ```
 

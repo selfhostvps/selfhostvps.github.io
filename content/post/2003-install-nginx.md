@@ -76,6 +76,25 @@ sudo apt install -f php8.4-common php8.4-{bcmath,bz2,curl,gd,gmp,intl,mbstring,o
 sudo apt install -f php8.4-{mysql,pgsql,sqlite3}
 ```
 
+### 设置从 php 网页上传文件的最大限制
+
+在 php 的配置文件 /etc/php/8.4/fpm/php.ini 里，默认只能上传最大 2M 的文件
+
+```
+upload_max_filesize = 2M
+post_max_size = 8M
+```
+
+可以把这两个参数修改成 200M，或者任何你希望的数值。可以手动修改上面的配置文件，也可以用下面的命令自动更改：
+
+```
+sudo sed -i 's/^\(upload_max_filesize\s*=\s*\).*/\1100M/' /etc/php/8.4/fpm/php.ini
+sudo sed -i 's/^\(post_max_size\s*=\s*\).*/\1100M/' /etc/php/8.4/fpm/php.ini
+
+# 修改后，重启 php 服务，才会生效
+sudo systemctl restart php8.4-fpm.service
+```
+
 ### 更换默认的 php 版本
 
 VPS 内可同时安装多个版本的 php，可以执行下面的命令，切换默认的 php 版本：

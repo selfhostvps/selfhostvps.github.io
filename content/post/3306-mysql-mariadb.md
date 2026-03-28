@@ -27,6 +27,7 @@ MariaDB 保持了对 MySQL 的兼容性，甚至在一些功能上更加便利�
 ├── backup             # 动态备份使用的目录
 ├── data               # 数据存储
 ├── tmp                # 临时交互目录
+├── .root_pw           # 储存根用户的密码
 └── docker-compose.yml # 配置文件
 ```
 
@@ -35,6 +36,12 @@ MariaDB 保持了对 MySQL 的兼容性，甚至在一些功能上更加便利�
 ```
 # 如果还没有运行过的话，先创建 docker 网络，为需要数据库的容器共享内部网络
 sudo docker network create network_database
+```
+
+在运行 docker-compose 之前，首先，设置一个数据库的根用户（root）密码，放到数据库 docker 项目的 .root_pw 里面，这是为了避免在以后的数据维护命令中，把密码写在数据库的明文里。
+
+```
+echo 'root_password_example' > /DOCKERS/mariadb/.root_pw
 ```
 
 **docker-compose.yml**，本站使用 MariaDB 11.4 的[长期支持版本](https://mariadb.com/resources/blog/announcing-yearly-lts-releases-for-mariadb-community-server/)。
@@ -48,12 +55,15 @@ services:
     # 如果忘记了 root 密码，取消下一行的注释，重新启动 docker-compose
     # command: --skip-grant-tables --skip-networking
     environment:
-      # 必须：设置根用户 root 的密码
-      - MARIADB_ROOT_PASSWORD=root_password_example
+      # 设置根用户 root 的密码文件位置
+      - MARIADB_ROOT_PASSWORD_FILE=/run/secrets/vps_mariadb_rootpw
       # 可选项：启动时直接创建一个数据库，和
       # - MARIADB_DATABASE=db_example
       # - MARIADB_USER=user_example
       # - MARIADB_PASSWORD=user_password_example
+    secrets:
+      # 使用 docker secret 机制，将 root 密码传入 docker 容器
+      - vps_mariadb_rootpw
     ports:
       - "3306:3306"
     volumes:
@@ -65,22 +75,31 @@ services:
 networks:
   network_database:
     external: true
+secrets:
+  vps_mariadb_rootpw:
+    # secret 对应的容器外部的密码文件
+    file: ./.root_pw
 ```
 
-注意，
-
-1. 如果你暂时只是为了单个服务而创建数据库，可以在第一次启动时，在 docker-compose.yml 里直接创建新的数据库名称和用户密码，可以省略下文专门进入数据库创建的步骤；
-2. 在docker-compose.yml 里设置的 root 用户密码，只在第一次启动时有用。如果你以后按照下文的指令，更改了 root 密码，那么原来设置的密码再也不会有效，也不能给你任何提示作用。请自行记住新的密码！
+如果你暂时只是为了单个服务而创建数据库，可以在第一次启动时，在 docker-compose.yml 里直接创建新的数据库名称和用户密码，可以省略下文专门进入数据库创建的步骤；
 
 ## 进入 MariaDB，创建数据库，创建用户
 
-在 vps 命令行下，进入数据库命令行模式，需要运行：
+在 vps 命令行下，进入数据库命令行模式，需要运行下面的命令，有三种方式可以运行：
+
+1. 运行下面的命令，按照本站的安全配置，会自动从 /DOCKERS/mariadb/.root_pw 中获取密码，避免了把密码在命令行明文输入的风险：
+
+```
+sudo docker exec -it vps-mariadb sh -c 'mariadb -u root -p"$(cat $MARIADB_ROOT_PASSWORD_FILE)"'
+```
+
+2. 运行下面的命令，然后根据提示，手动输入密码：
 
 ```
 sudo docker exec -it vps-mariadb mariadb -u root -p
 ```
 
-然后在下一行输入密码。也可以把密码写在下面的命令里，一次性进入（注意，-p 和密码之间没有空格）。但这样会让一些辅助记录历史命令的软件，记住你的明文密码，所以建议尽量不要这样做。
+3. 也可以把密码写在下面的命令里，一次性进入（注意，-p 和密码之间没有空格）。但这样会让一些辅助记录历史命令的软件，记住你的明文密码，所以建议尽量不要这样做。
 
 ```
 sudo docker exec -it vps-mariadb mariadb -u root -pPASSWORD
@@ -212,6 +231,31 @@ QUIT;
 | Wallabag  | ✓     | ✓          | ✓      |
 | Miniflux  | x     | ✓          | x      |
 
+### 修改 root 密码
+
+进入 MariaDB 管理界面：
+
+```
+sudo docker exec -it vps-mariadb sh -c 'mariadb -u root -p"$(cat $MARIADB_ROOT_PASSWORD_FILE)"'
+```
+
+在 MariaDB 提示符下，输入下面的命令，设置新密码：
+
+```
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
+FLUSH PRIVILEGES;
+QUIT;
+```
+
+最后，把新的密码，写入外部储存的密码文件 .root_pw
+
+```
+echo 'new_password' > /DOCKERS/mariadb/.root_pw
+
+# 或者直接编辑 .root_pw 文件
+nano /DOCKERS/mariadb/.root_pw
+```
+
 ### 忘记 root 密码怎么办？
 
 停止 MariaDB 容器
@@ -254,4 +298,3 @@ sudo docker-compose down
 # 再次启动容器
 sudo docker-compose up -d
 ```
-

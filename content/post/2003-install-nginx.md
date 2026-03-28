@@ -88,8 +88,8 @@ post_max_size = 8M
 可以把这两个参数修改成 200M，或者任何你希望的数值。可以手动修改上面的配置文件，也可以用下面的命令自动更改：
 
 ```
-sudo sed -i 's/^\(upload_max_filesize\s*=\s*\).*/\1100M/' /etc/php/8.4/fpm/php.ini
-sudo sed -i 's/^\(post_max_size\s*=\s*\).*/\1100M/' /etc/php/8.4/fpm/php.ini
+sudo sed -i 's/^\(upload_max_filesize\s*=\s*\).*/\1200M/' /etc/php/8.4/fpm/php.ini
+sudo sed -i 's/^\(post_max_size\s*=\s*\).*/\1200M/' /etc/php/8.4/fpm/php.ini
 
 # 修改后，重启 php 服务，才会生效
 sudo systemctl restart php8.4-fpm.service

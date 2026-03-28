@@ -27,7 +27,7 @@ MariaDB 保持了对 MySQL 的兼容性，甚至在一些功能上更加便利�
 ├── backup             # 动态备份使用的目录
 ├── data               # 数据存储
 ├── tmp                # 临时交互目录
-├── .root_pw           # 储存根用户的密码
+├── root_pw.txt        # 储存根用户的密码
 └── docker-compose.yml # 配置文件
 ```
 
@@ -38,10 +38,10 @@ MariaDB 保持了对 MySQL 的兼容性，甚至在一些功能上更加便利�
 sudo docker network create network_database
 ```
 
-在运行 docker-compose 之前，首先，设置一个数据库的根用户（root）密码，放到数据库 docker 项目的 .root_pw 里面，这是为了避免在以后的数据维护命令中，把密码写在数据库的明文里。
+在运行 docker-compose 之前，首先，设置一个数据库的根用户（root）密码，放到数据库 docker 项目的 root_pw.txt 里面，这是为了避免在以后的数据维护命令中，把密码写在数据库的明文里。
 
 ```
-echo 'root_password_example' > /DOCKERS/mariadb/.root_pw
+echo 'root_password_example' > /DOCKERS/mariadb/root_pw.txt
 ```
 
 **docker-compose.yml**，本站使用 MariaDB 11.4 的[长期支持版本](https://mariadb.com/resources/blog/announcing-yearly-lts-releases-for-mariadb-community-server/)。
@@ -78,7 +78,7 @@ networks:
 secrets:
   vps_mariadb_rootpw:
     # secret 对应的容器外部的密码文件
-    file: ./.root_pw
+    file: ./root_pw.txt
 ```
 
 如果你暂时只是为了单个服务而创建数据库，可以在第一次启动时，在 docker-compose.yml 里直接创建新的数据库名称和用户密码，可以省略下文专门进入数据库创建的步骤；
@@ -87,7 +87,7 @@ secrets:
 
 在 vps 命令行下，进入数据库命令行模式，需要运行下面的命令，有三种方式可以运行：
 
-1. 运行下面的命令，按照本站的安全配置，会自动从 /DOCKERS/mariadb/.root_pw 中获取密码，避免了把密码在命令行明文输入的风险：
+1. 运行下面的命令，按照本文前面的安全配置，会自动从 root_pw.txt 中获取密码，避免了把密码在命令行明文输入的风险：
 
 ```
 sudo docker exec -it vps-mariadb sh -c 'mariadb -u root -p"$(cat $MARIADB_ROOT_PASSWORD_FILE)"'
@@ -247,13 +247,13 @@ FLUSH PRIVILEGES;
 QUIT;
 ```
 
-最后，把新的密码，写入外部储存的密码文件 .root_pw
+最后，把新的密码，写入外部储存的密码文件 root_pw.txt
 
 ```
-echo 'new_password' > /DOCKERS/mariadb/.root_pw
+echo 'new_password' > /DOCKERS/mariadb/root_pw.txt
 
-# 或者直接编辑 .root_pw 文件
-nano /DOCKERS/mariadb/.root_pw
+# 或者直接编辑 root_pw.txt 文件
+nano /DOCKERS/mariadb/root_pw.txt
 ```
 
 ### 忘记 root 密码怎么办？
@@ -297,4 +297,13 @@ sudo docker-compose down
 
 # 再次启动容器
 sudo docker-compose up -d
+```
+
+最后，把新的密码，写入外部储存的密码文件 root_pw.txt
+
+```
+echo 'new_password' > /DOCKERS/mariadb/root_pw.txt
+
+# 或者直接编辑 root_pw.txt 文件
+nano /DOCKERS/mariadb/root_pw.txt
 ```

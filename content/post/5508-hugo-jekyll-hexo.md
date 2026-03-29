@@ -1,5 +1,5 @@
 +++
-title = "在 vps 部署静态网站：Hugo、JekyII、Hexo……"
+title = "在 vps 部署静态网站：Hugo、Jekyll、Hexo……"
 date = "2026-03-28"
 tags = [
     "nginx","blog"

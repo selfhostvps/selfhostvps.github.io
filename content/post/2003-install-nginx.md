@@ -1,5 +1,5 @@
 +++
-title = "VPS 初始安装设置：1. Nginx & Docker"
+title = "初始安装 1. 网站服务器 Nginx & PHP"
 date = "2026-01-17"
 tags = [
     "VPS","webserver","docker"

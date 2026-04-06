@@ -18,6 +18,8 @@ MariaDB 保持了对 MySQL 的兼容性，甚至在一些功能上更加便利�
 
 但是，从称谓上，MySQL 更习惯被用作这种类型数据库的统称，尤其是和其它类型的数据库做对比时（如 PostgreSQL、SQLite…）。所以，虽然大家实际安装的是 MariaDB，可能有时仍然会把它叫做 MySQL。
 
+另外，因为在本站的教程里，数据库是安装在 docker 容器里的，所以本文的很多数据库命令，都是关于如何从 docker 容器外部来操作数据库的，比通常直接介绍数据库命令的教程更复杂一些。
+
 ## MariaDB 的安装
 
 **docker compose 目录结构**
@@ -207,13 +209,99 @@ QUIT;
 
 ## 数据库的备份
 
-### 物理备份：mariadb-backup
+在这里，只是介绍数据库备份的基本命令。至于如何应用这些命令，需要结合更详尽的 vps 管理方案来定制。以后本站将专门写文章介绍。
 
-待续
+- 备份文件放在哪里？如何管理？
+- 多久备份一次？
+- 手动备份还是写脚本自动备份？
+
+MySQL / MariaDB 数据库的备份方式，通常分为 2 种：
+
+- 逻辑备份：导出通用的 .sql 文件，可以方便地把单个数据库导出导入到其它地方。执行速度比物理备份更慢。对于本站的个人规模的数据库，更推荐使用逻辑备份；
+- 物理备份：直接复制数据库程序文件。速度更快，但通常是对数据库整体进行备份。备份和恢复都和当前的数据库版本紧密相关。
+	- Docker 备份：因为本站的数据库是通过 docker 容器安装，数据文件也储存在 docker 文件夹内部，所以，在停止数据库后把整个 docker 项目文件夹备份，是另一种可能更简单的 “物理备份”。
 
 ### 逻辑备份 / SQL 导出：mariadb-dump / mysqldump
 
-待续
+#### 备份
+
+将单个数据库 database_1 的所有内容，备份到 backup_1.sql 文件：
+
+```
+方法 1. 在命令行明文写入密码 PASSWORD，存在安全风险，不推荐
+sudo docker exec -it vps-mariadb mariadb-dump -u root -p"PASSWORD" --databases database_1 > /path/to/backup_1.sql
+
+方法 2. 从本站预设的 docker secret 文件中，获取密码
+sudo docker exec -it vps-mariadb sh -c 'mariadb-dump -u root -p"$(cat $MARIADB_ROOT_PASSWORD_FILE)" --databases database_1' > /path/to/backup_1.sql
+```
+
+也可以把多个数据库，同时备份到一个 .sql 文件：
+
+```
+sudo docker exec -it vps-mariadb sh -c 'mariadb-dump -u root -p"$(cat $MARIADB_ROOT_PASSWORD_FILE)" --databases database_1 database_2' > /path/to/backup_1_and_2.sql
+```
+
+甚至把包含系统数据库的全部数据库，同时备份到一个 .sql 文件：
+
+```
+sudo docker exec -it vps-mariadb sh -c 'mariadb-dump -u root -p"$(cat $MARIADB_ROOT_PASSWORD_FILE)" --all-databases' > /path/to/backup_all.sql
+```
+
+#### 恢复
+
+将前面生成的数据库备份文件，恢复到数据库的命令：
+（注意：docker exec 后面的参数是 -i ，而不是常用的  -it）
+
+```
+sudo docker exec -i vps-mariadb sh -c 'mariadb -u root -p"$(cat $MARIADB_ROOT_PASSWORD_FILE)"' < /path/to/backup_1.sql
+```
+
+注意：
+
+1. 虽然备份文件里，包含了把每个数据表（table）删除后重新创建的命令，但是，为了稳妥起见，建议先删除原有的数据库（drop database），再进行导入；
+2. 备份命令中的 --databases 参数，会包含创建数据库 database_1 的命令，如果要将备份文件恢复到另一个数据库 database_2，需要手动将 .sql 文件开头创建数据库的命令删除。然后，在恢复命令中指定目标数据库 database_2；
+
+```
+sudo docker exec -i vps-mariadb sh -c 'mariadb -u root -p"$(cat $MARIADB_ROOT_PASSWORD_FILE)" database_2' < /path/to/backup_1.sql
+```
+
+3. 备份文件中，不包含和数据库用户权限有关的信息。如果是在一个新建的数据库系统中导入原有的 .sql 文件，需要重新把数据库授权给相应的用户。
+
+
+### 物理备份：mariadb-backup
+
+```
+# 备份到 vps docker compose 的 ./backup 文件夹
+
+# 方法 1. 使用本站预设的 docker secret 传递数据库密码
+sudo docker exec -it vps-mariadb sh -c 'mariadb-backup --backup --target-dir=/var/mariadb/backup/ --user=root --password="$(cat $MARIADB_ROOT_PASSWORD_FILE)"'
+
+# 方法 2. 在命令行明文输入密码（慎用！）
+docker exec -it vps-mariadb mariadb-backup --backup --target-dir=/var/mariadb/backup/ --user=root --password=ROOT_PASSWORD
+
+# 压缩备份文件夹
+sudo tar -czvf BACKUP_MariaDB_$(date +%Y%m%d).tar.gz ./backup
+
+# 如果需要下一次备份，请先把 ./backup 文件夹清空
+sudo rm -rf ./backup/*
+
+```
+
+从逻辑备份文件恢复：
+
+```
+# 解压备份文件到 ./tmp/backup
+tar -xvf BACKUP_MariaDB_20260330.tar.gz -C ./tmp/
+
+# 停止容器
+sudo docker compose down
+
+# 删除原来容器中的数据文件——慎用！！建议先备份原来的整个 docker compose 文件夹！
+docker compose run --rm vps-mariadb sh -c "rm -rf /var/lib/mysql/.* 2>/dev/null"
+
+# 恢复备份文件到数据库
+docker compose run --rm vps-mariadb mariadb-backup --copy-back --target-dir=/tmp/backup/
+```
 
 ## 其它
 

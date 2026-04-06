@@ -1,7 +1,11 @@
+
 +++
-title = "首页"
+title = "本站首页"
 menu = "main"
 weight = 1
+[params]
+  no_toc = true
+  no_date = true
 +++
 
 ## 还不知道放什么的首页
@@ -11,26 +15,26 @@ weight = 1
 1. 基本概念
 
 - 自建 VPS 的用途
-- 常用 VPS 介绍
+- [常用 VPS 购买推荐](/post/1003-vps-list/)
 
-2. 通用的 vps 设置和管理
+2. 基本的 VPS 设置和管理
 
-- [初建 VPS 的安全设置](/post/2001-new-vps-setup)
-- 常用 linux 命令
-- 网站服务器：Nginx
-- 购买域名、Cloudflare 配置、https/tls 设置
-- Docker 简介和安装，端口号的介绍与管理
-- 一个基本的 Docker - Nginx 服务的样例
-- 数据库安装：mysql、postgresql
+- [新购买 VPS 的初始登录和安全配置](/post/2001-new-vps-setup/)
+- [常用 Linux 命令和工具](/post/2002-vps-linux-commands/)
+- [购买域名、Cloudflare 配置](https://selfhostvps.github.io/post/2004-cloudflare/)
+- [初始安装 1. 网站服务器 Nginx & PHP](https://selfhostvps.github.io/post/2003-install-nginx/)
+- [初始安装 2. Docker 的安装、设置、基本操作](https://selfhostvps.github.io/post/2006-docker/)
+- [一个基本的 Docker - Nginx 网站服务样例](https://selfhostvps.github.io/post/2005-service-deploy-example/)
+- 数据库安装：[MySQL / MariaDB](https://selfhostvps.github.io/post/3306-mysql-mariadb/) 、PostgreSQL
 - 数据导出和备份
 
 3. 常用自建项目
 
-- [如何快速自建梯子翻墙](https://selfhostvps.github.io/post/3001-selfhost-gfw/)
-- [一个基本的 Nginx 网站的部署](https://selfhostvps.github.io/post/2005-service-deploy-example/)
+- [如何快速自建梯子翻墙（新手版）](https://selfhostvps.github.io/post/3001-selfhost-gfw/)
+- [几种自建翻墙的方案（高级版）](https://selfhostvps.github.io/post/5507-vpn/)
 - 自建 blog
 	- 非静态 blog：Wordpress
-	- 静态 blog：Hugo
+	- [静态 blog](https://selfhostvps.github.io/post/5508-hugo-jekyll-hexo/)：Hugo
 - 常用自建项目
 	- RSS 阅读器：Miniflux
 	- 文章备份：Wallabag
@@ -42,6 +46,7 @@ weight = 1
     - 任务管理 vikunja
     - gitea
     - [NextChat，个人 AI 浏览器界面](https://selfhostvps.github.io/post/5503-nextchat/)
+    - [adminer，从网页访问和管理 vps 数据库](https://selfhostvps.github.io/post/5506-adminer/)
     - webdav
     - [密码管理软件 Bitwarden / Vaultwarden](https://selfhostvps.github.io/post/5502-bitwarden-vaultwarden/)
     - 聊天软件 Matrix

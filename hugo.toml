@@ -7,6 +7,7 @@ theme = 'hugo-bearblog'
 
 # Basic metadata configuration for your blog.
 title = "自建 VPS 服务器的一些攻略"
+subtitle = "文章的内容可能依赖于一些更基础的 vps 设置，访问首页获取更多信息"
 author = "Jane Doe"
 copyright = "Copyright © 2025, Jane Doe."
 languageCode = "zh-CN"

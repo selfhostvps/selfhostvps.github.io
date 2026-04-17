@@ -127,6 +127,16 @@ sudo dpkg-reconfigure tzdata
 sudo hostnamectl set-hostname SHORT_NAME
 ```
 
+### 7. 安装一些常用的基本工具
+
+```
+# 安装 crontab，运行计划任务的工具。似乎有些 Ubuntu 没有预装这个
+sudo apt-get install -y cron
+
+# 安装 7z 压缩程序
+sudo apt-get install -y p7zip-full
+```
+
 ---
 
 ## 高级知识

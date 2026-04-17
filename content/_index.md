@@ -34,7 +34,7 @@ weight = 1
 - [几种自建翻墙的方案（高级版）](/post/5507-selfhost-gfw-docker-compose/)
 - 自建 blog
 	- [非静态 blog：Wordpress](/post/5505-wordpress/)
-	- [静态 blog](/post/5508-hugo-jekyll-hexo/)：Hugo
+	- [静态 blog](/post/5510-hugo-jekyll-hexo/)：Hugo
 - 常用自建项目
 	- RSS 阅读器：Miniflux
 	- 文章备份：Wallabag

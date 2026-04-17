@@ -31,7 +31,7 @@ weight = 1
 3. 常用自建项目
 
 - [如何快速自建梯子翻墙（新手版）](/post/3001-selfhost-gfw/)
-- [几种自建翻墙的方案（高级版）](/post/5507-vpn/)
+- [几种自建翻墙的方案（高级版）](/post/5507-selfhost-gfw-docker-compose/)
 - 自建 blog
 	- [非静态 blog：Wordpress](/post/5505-wordpress/)
 	- [静态 blog](/post/5508-hugo-jekyll-hexo/)：Hugo

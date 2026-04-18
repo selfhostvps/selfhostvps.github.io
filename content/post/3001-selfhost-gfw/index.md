@@ -144,9 +144,9 @@ tags = [
 
 ---
 
-## 3. 安装翻墙软件
+## 3. 在 VPS 安装翻墙服务
 
-本文介绍的翻墙软件，使用 Reality 翻墙技术，和之前的翻墙技术相比，更加隐蔽，省略了自己购买、验证域名的步骤。关键的程序，采用了 [wulabing 制作](https://github.com/wulabing/xray_docker/tree/master/reality)的 Docker 程序包，让安装过程更为简单。
+本文的翻墙教程，使用 Reality 技术，和之前的翻墙技术相比，更加隐蔽，省略了自己购买、验证域名的步骤。关键的程序，采用了 [wulabing 制作](https://github.com/wulabing/xray_docker/tree/master/reality)的 Docker 程序包，让安装过程更为简单。
 
 一共有 6 行命令，在 root # 提示符后面，复制下面的命令，然后按回车键执行。直到提示符再次出现，复制运行下一条命令。6 行命令的运行效果大致如图：
 

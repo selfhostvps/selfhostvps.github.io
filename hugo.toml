@@ -58,3 +58,6 @@ dateFormat = "2006-01-02"
     lineNos = true
     lineNumbersInTable = false
     codeFences = true
+
+[markup.goldmark.extensions]
+  linkify = false

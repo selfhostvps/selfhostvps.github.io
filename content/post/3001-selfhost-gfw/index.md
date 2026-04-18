@@ -152,6 +152,8 @@ tags = [
 
 ![](0300-commands.jpg)
 
+下面的 6 条命令中，3 和 5 里面的 8765，是系统的端口号，可以自行改成 2000 ~ 20000 之间的任意数字，但需要在所有地方**保持一致**。如果这台 VPS 没有运行其它服务，只是用来翻墙，把这些命令里的**端口号 8765 改成 443**，理论上的长期隐蔽性会更高一些，但在我们的实际使用中，这一点区别并不是很关键。
+
 1. 更新系统软件
 
 ```
@@ -166,8 +168,6 @@ apt-get -f install ufw fail2ban
 
 3. 启动、配置防火墙。
 
-	- 这里的 8765，可以自行改成 2000 ~ 9000 之间的任意数字，但需要和命令 5 里的 8765 保持一致。
-
 ```
 ufw enable && ufw allow 8765
 ```
@@ -179,8 +179,6 @@ curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 ```
 
 5. 安装梯子程序
-
-	- 就像命令 3 说的，可以把 8765 改成任何数字，但要保持一致。
 
 ```
 EXTERNAL_PORT=8765 && docker run -d --name xray_reality --restart=always --log-opt max-size=100m --log-opt max-file=3 -p $EXTERNAL_PORT:443 -e EXTERNAL_PORT=$EXTERNAL_PORT wulabing/xray_docker_reality:latest

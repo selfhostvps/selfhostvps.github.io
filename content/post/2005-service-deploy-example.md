@@ -48,17 +48,13 @@ sudo docker compose up -d
 
 ## 3. 申请 https / SSL 证书
 
-1. 如果你一直按照本站的设定，
+1. 如果你一直按照本站的设定，那么，这一步可以直接跳过。
 
 - 使用 cloudflare 管理解析域名
 - 已经[获取了 cloudflare 的 15 年证书](/post/2004-cloudflare/)
 - 在本文第 1 步设置 A 类记录时，选择了 Proxied（小黄云）
 
-那么这一步可以直接跳过。
-
-2. 如果不满足上述条件，那么，按照本站《[申请和使用 https / SSL 证书](/post/2007-https/#%E6%96%B9%E6%B3%95-2-%E4%BD%BF%E7%94%A8-certbot-%E4%B8%BA%E6%AF%8F%E4%B8%AA%E5%AD%90%E5%9F%9F%E5%90%8D%E5%8D%95%E7%8B%AC%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6)》的步骤，为 monitor.example.com 申请单独的 https / SSL 证书。
-
-并且，在下一步，设置 nginx 网站配置文件中，修改 SSL 证书的文件地址：
+2. 如果不满足上述条件，那么，按照本站《[申请和使用 https / SSL 证书](/post/2007-https/#%E6%96%B9%E6%B3%95-2-%E4%BD%BF%E7%94%A8-certbot-%E4%B8%BA%E6%AF%8F%E4%B8%AA%E5%AD%90%E5%9F%9F%E5%90%8D%E5%8D%95%E7%8B%AC%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6)》的步骤，为 monitor.example.com 申请单独的 https / SSL 证书。并且，在下一步，设置 nginx 网站配置文件中，修改 SSL 证书的文件地址：
 
 ```
 server {

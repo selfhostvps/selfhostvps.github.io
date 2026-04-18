@@ -1,5 +1,13 @@
-
-
++++
+title = "如何自建梯子翻墙（新手友好版）"
+date = "2026-03-08"
+tags = [
+    "GFW","docker","reality","vless"
+]
+[params]
+  no_toc = false
+  no_date = true
++++
 
 ## 介绍. 如何简单地自建梯子翻墙的教程
 

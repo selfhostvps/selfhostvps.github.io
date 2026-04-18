@@ -1,19 +1,11 @@
-+++
-title = "如何自建梯子翻墙（新手友好版）"
-date = "2026-03-08"
-tags = [
-    "GFW","docker","reality","vless"
-]
-[params]
-  no_toc = false
-  no_date = true
-+++
+
+
 
 ## 介绍. 如何简单地自建梯子翻墙的教程
 
 这是一篇教程，面向非技术人士，讲述如何用最简单的流程，自行购买海外服务器，自建梯子翻墙。
 
-> 注意，中国区的苹果手机用户，请先参见[本文第 4 部分的翻墙工具](#ios-%E8%8B%B9%E6%9E%9C%E6%89%8B%E6%9C%BA)。如果你没有海外的苹果账号，很可能无法用本文的方法翻墙！
+> 注意，中国区的苹果手机用户，请先参见本文第 4 部分的翻墙工具。如果你没有海外的苹果账号，很可能无法用本文的方法翻墙！
 > 以及，本文提到的，购买 VPS 的网站、下载翻墙工具、以及这篇文章本身，可能需要你先能翻墙。
 
 和寻找购买翻墙账号（所谓「机场」）相比，最隐蔽、最安全、也最划算的翻墙方式，从来都是自建梯子。
@@ -27,7 +19,7 @@ tags = [
 在这里，我们试着提供一篇攻略，希望能尽量简单，让非技术人士只需要逐行复制几个指令，就能自己动手建一个梯子。
 
 - 这不是一篇教你如何运营机场的攻略。它没有为每个人建不同的账户、监控他们的流量、乃至计费；仅仅是用最简单的方式，生成一个翻墙账号。这个账号可以在很多个设备上一起用，也可以分享给你信任的亲友（如果每月 1TB 还会因为超出用量而争执，那就算了……），但无论如何，不要把账号流传给外人。
-- 这也不是一篇，如何更好使用自建服务器（VPS）的攻略。本站的其它文章，致力于向大家介绍，如何在自己的海外服务器（VPS）上，使用各种便捷的工具：网盘、笔记、博客、密码管理、私密聊天、社群讨论……但这些存在更高的技术门槛。这篇攻略里，关于服务器的设置，做了很多简化，它的安全性和扩展性并不完美，但对于一架梯子来说，足够了。
+- 这也不是一篇，如何更好使用自建服务器（VPS）的攻略。[本站的其它文章](https://selfhostvps.github.io/)，致力于向大家介绍，如何在自己的海外服务器（VPS）上，使用各种便捷的工具：网盘、笔记、博客、密码管理、私密聊天、社群讨论……但这些存在更高的技术门槛。这篇攻略里，关于服务器的设置，做了很多简化，它的安全性和扩展性并不完美，但对于一架梯子来说，足够了。
 
 这篇攻略包括以下步骤：
 
@@ -83,7 +75,7 @@ tags = [
 
 ## 2. 初始化服务器
 
-### 进入搬瓦工自带的命令行界面
+### 进入搬瓦工的管理界面
 
 这时，你已经完成了搬瓦工（或者其它家服务器）的注册与购买。在搬瓦工页面的右上方，进入 Client Area。
 
@@ -98,29 +90,37 @@ tags = [
 
 ![](01011-main-controls-stop.jpg)
 
+![[01011-main-controls-stop.jpg]]
+
 然后，重装系统。
 
 ### 重装系统
 
 首先在 Main controls 里，点击 Stop，把正在运行的服务器停止。
 
-![](01012-stopping.jpg)
+![[01012-stopping.jpg]]
 
 点击左边的 Install new OS，给服务器安装操作系统。在右侧页面列出来的操作系统里，选择最下方的 Ubuntu-24.04，勾选确认框后，点击 Reload。
 
-![](01013-new-os-1.jpg)
+![[01013-new-os-1.jpg]]
 
 下一步的页面里，显示正在重装系统，同时，会生成一个根用户的密码（root password），把这个密码记录下来。——如果只是按照本站教程，在搬瓦工的网页里自建梯子，应该是用不到这个密码的；但如果你有更高级的需求，需要自行远程登录 VPS 服务器，这个密码是必须的。
 
-![](01014-new-os-2.jpg)
+![[01014-new-os-2.jpg]]
 
 在上面的页面，点击 Go Back 后，会显示安装进度，几分钟后安装完毕。
 
-![](01015-new-os-3.jpg)
+![[01015-new-os-3.jpg]]
 
-安装完毕后，进入 Main control，查看系统是否处于 Running 状态。
+重装系统完毕后，进入 Main control，查看系统是否处于 Running 状态。
 
-![](01015-new-running.jpg)
+![[01015-new-running.jpg]]
+
+### 进入 VPS 的命令行界面
+
+#### 搬瓦工网页自带的命令行界面
+
+搬瓦工的 KiwiVM 网页上，自带一个简易的，用来进入 VPS 命令行界面的入口。新人使用这个界面就足够了。本文下一节的安装翻墙服务的命令，都做了相应的优化，可以在这个简易界面里运行。
 
 点击左边栏的 Root shell - Basic，看到右边黑色屏幕中的命令行提示符 
 
@@ -130,7 +130,11 @@ tags = [
 
 就可以进入下一阶段，复制命令，安装梯子软件。
 
-![](01016-root-shell.jpg)
+![[01016-root-shell.jpg]]
+
+#### 或者，使用专门的 ssh 软件登录 VPS
+
+有能力的用户，也可以如本站[另一篇文章所示](/post/2001-new-vps-setup/#1-%E4%BD%BF%E7%94%A8-ssh-%E7%99%BB%E5%BD%95%E5%88%B0-vps)，从自己的电脑通过 ssh 工具连接 VPS。需要之前重装系统时显示的 root 根用户密码。
 
 ---
 
@@ -140,7 +144,7 @@ tags = [
 
 一共有 6 行命令，在 root # 提示符后面，复制下面的命令，然后按回车键执行。直到提示符再次出现，复制运行下一条命令。6 行命令的运行效果大致如图：
 
-![](0300-commands.jpg)
+![[0300-commands.jpg]]
 
 1. 更新系统软件
 
@@ -208,6 +212,8 @@ vless://07e947d3-0028-47e5-a761-c706203a9781@123.123.123.123:8765?encryption=non
 	- v2box，[官网？教程](https://v2rayn.org/)，[下载地址](https://apps.apple.com/en/app/v2box-v2ray-client/id6446814690)。有广告，据说休眠时也会掉电量，但翻墙功能本身，似乎比其它软件更好用一些。
 	- v2RayTun，[官网](https://v2raytun.com/)，[下载地址](https://apps.apple.com/en/app/v2box-v2ray-client/id6446814690)。
 
+另外，如果你在家里的局域网（wifi）使用 iphone 或 ipad，而 wifi 里有其它电脑。可以在其它电脑上配置翻墙软件后，让 iphone 连接同一 wifi 里的电脑进行翻墙。大致的教程可以[看这篇帖子](https://github.com/bannedbook/fanqiang/blob/master/ios/fqByLan.md)。最新的 PC 端的 v2rayN 软件，允许其它设备一起翻墙的开关在：Settings - Core: basic settings - Allow connections from the LAN
+
 ### windows 电脑
 
 -  v2rayN（[官网](https://v2rayn.2dust.link/)，[github](https://github.com/2dust/v2rayn)），支持 Windows、Linux、MacOS，可从 github [直接下载 apk](https://github.com/2dust/v2rayN/releases) 安装包，具体哪个平台下载哪个安装包，可以参见[官网的说明](https://github.com/2dust/v2rayN/wiki/Release-files-introduction)。Windows 通常下载 v2rayN-windows-64.zip 即可。具体使用教程可以[参见这篇文章](https://v2rayn.org/)中的 "剪贴板导入教程" 部分，复制上面生成的 vless:// 地址，在软件中从剪切板导入。
@@ -220,24 +226,24 @@ vless://07e947d3-0028-47e5-a761-c706203a9781@123.123.123.123:8765?encryption=non
 
 ## 备注
 
-1. 这篇教程面向单纯购买 VPS 只是为了翻墙的用户，对 Linux / Docker 有经验的用户，可以根据自己需要更改（关键只是第 5 条命令而已），可以改成更舒适的 docker compose，也可以参考 [wulabing 的 Dockerfile 文件](https://github.com/wulabing/xray_docker/blob/master/reality/Dockerfile)，自行编译更安全的版本。
-2. 可以在一台 VPS 上，同时运行多个翻墙程序（同时运行不超过 5 个，还是没问题的），每个翻墙程序有各自的端口和账号，以便和不同的人分享。需要创建多个程序的步骤：
+1. 这篇教程面向单纯购买 VPS 只是为了翻墙的用户，对 Linux / Docker 有经验的用户，可以根据自己需要更改（关键只是第 5 条命令而已），参照本站的《[自建翻墙 - 高级篇](/post/5507-selfhost-gfw-docker-compose/)》，使用更加便于管理的 docker compose，也可以参考 [wulabing 的 Dockerfile 文件](https://github.com/wulabing/xray_docker/blob/master/reality/Dockerfile)，自行编译更安全的版本。
+2. 可以在一台 VPS 上，同时运行多个翻墙程序（每个翻墙容器消耗 20MB 内存，同时运行十几个，还是没问题的），每个翻墙程序有各自的端口和账号，以便和不同的人分享。需要创建多个程序的步骤：
 
 ```
 # 1. 选择一个新的端口号，譬如 8766，配置防火墙
 ufw allow 8766
 
-# 2. 类似命令 5，修改端口号、和 --name 后面的容器名称 xray_reality_2
+# 2. 类似命令 5，修改端口号、和 --name 后面的容器名称 xray_reality_8766
 EXTERNAL_PORT=8766 && docker run -d --name xray_reality_2 --restart=always --log-opt max-size=100m --log-opt max-file=3 -p $EXTERNAL_PORT:443 -e EXTERNAL_PORT=$EXTERNAL_PORT wulabing/xray_docker_reality:latest
 
 # 3. 类似命令 6，使用新的容器名称，获得新的翻墙账号
-docker cp xray_reality_2:/config_info.txt ./ && cat config_info.txt
+docker cp xray_reality_8766:/config_info.txt ./ && cat config_info.txt
 ```
 
 3. 如果需要停止其中任何一个翻墙程序，只需要根据相应的容器名称，运行：
 
 ```
-docker stop xray_reality_2
+docker stop xray_reality_8766
 ```
 
 ---

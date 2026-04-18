@@ -15,7 +15,7 @@ tags = [
 
 假设你为这个服务指定的子域名为 monitor.example.com
 
-登录 Cloudflare，在域名配置文件中，进入 DNS 页面，添加 Record
+登录 Cloudflare（或者其它域名管理商的界面），选择要设置的域名，进入 DNS 页面，添加 Record
 
 - 类型 Type：A
 - 子域名：monitor
@@ -46,7 +46,33 @@ nano docker-compose.yml
 sudo docker compose up -d
 ```
 
-## 3. 设置 nginx
+## 3. 申请 https / SSL 证书
+
+1. 如果你一直按照本站的设定，
+
+- 使用 cloudflare 管理解析域名
+- 已经[获取了 cloudflare 的 15 年证书](/post/2004-cloudflare/)
+- 在本文第 1 步设置 A 类记录时，选择了 Proxied（小黄云）
+
+那么这一步可以直接跳过。
+
+2. 如果不满足上述条件，那么，按照本站《[申请和使用 https / SSL 证书](/post/2007-https/#%E6%96%B9%E6%B3%95-2-%E4%BD%BF%E7%94%A8-certbot-%E4%B8%BA%E6%AF%8F%E4%B8%AA%E5%AD%90%E5%9F%9F%E5%90%8D%E5%8D%95%E7%8B%AC%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6)》的步骤，为 monitor.example.com 申请单独的 https / SSL 证书。
+
+并且，在下一步，设置 nginx 网站配置文件中，修改 SSL 证书的文件地址：
+
+```
+server {
+    server_name monitor.example.com;
+
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/monitor.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/monitor.example.com/privkey.pem;
+
+	# 其它设置....
+}
+```
+
+## 4. 设置 nginx
 
 Nginx 的网站配置文件，默认位于 /etc/nginx/sites-available 可以选择把新网站的配置代码，
 
@@ -61,7 +87,7 @@ sudo touch /etc/nginx/sites-available/new_website.conf
 sudo ln -s /etc/nginx/sites-available/new_website.conf /etc/nginx/sites-enabled/new_website.conf
 ```
 
-编辑你选定的配置文件（现有的或新建的），将 [Uptime Kuma 帖子](/post/5501-uptime-kuma/)中 Nginx conf 的相关代码，复制到编辑页面中，Ctrl+x 确认保存。
+编辑你选定的配置文件（现有的或新建的），将 [Uptime Kuma 帖子](/post/5501-uptime-kuma/)中 Nginx conf 的相关代码，复制到编辑页面中（可能需要修改其中的 https / SSL 证书文件地址），Ctrl+x 确认保存。
 
 > 注意，每一个独立的站点，都是在一个独立的 server { } 内。复制配置代码时，不要复制到其它站点的 { } 内部！
 
@@ -75,7 +101,7 @@ sudo nano /etc/nginx/sites-available/new_website.conf
 sudo systemctl reload nginx
 ```
 
-## 4. 完成
+## 5. 完成
 
 此时，访问 https://monitor.example.com ，就可以看到你部署好的网站服务了。
 

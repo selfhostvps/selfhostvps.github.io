@@ -98,6 +98,8 @@ tags = [
 
 ![](01011-main-controls-stop.jpg)
 
+此时可以检查一下（参照本文[末尾的说明](#%E6%A3%80%E6%9F%A5-vps-%E7%9A%84-ip-%E6%98%AF%E5%90%A6%E8%A2%AB%E5%B0%81)），新的 VPS 的 ip 地址，是不是已经被中国大陆封禁了？多数情况下，搬瓦工服务商会确保，最初给你的 ip 是没有被封禁的。
+
 然后，重装系统。
 
 ### 重装系统
@@ -254,13 +256,13 @@ docker stop xray_reality_8766
 
 ### 检查 VPS 的 ip 是否被封
 
-![](01011-main-controls-stop.jpg)
-
 搬瓦工有一个自带的，检查服务器 ip 是否被封禁的工具。登入搬瓦工网站后，在浏览器的地址栏，输入下面的网址，把其中的 1234567 改成图中你的当前 VPS 的数字 ID 编号：
 
 ```
 https://kiwivm.64clouds.com/1234567/main-exec.php?mode=blacklistcheck
 ```
+
+![](01011-main-controls-stop.jpg)
 
 运行 Test，如果显示 IP NOT BLOCKED，表示当前 VPS 的 ip 地址，没有被中国大陆封禁。如果你在国内，也可以（断开已有翻墙连接后）直接在你的电脑上检查 ip 地址能不能连通（譬如 ping 工具）。
 

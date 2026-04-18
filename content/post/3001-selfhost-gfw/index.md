@@ -98,31 +98,29 @@ tags = [
 
 ![](01011-main-controls-stop.jpg)
 
-![[01011-main-controls-stop.jpg]]
-
 然后，重装系统。
 
 ### 重装系统
 
 首先在 Main controls 里，点击 Stop，把正在运行的服务器停止。
 
-![[01012-stopping.jpg]]
+![](01012-stopping.jpg)
 
 点击左边的 Install new OS，给服务器安装操作系统。在右侧页面列出来的操作系统里，选择最下方的 Ubuntu-24.04，勾选确认框后，点击 Reload。
 
-![[01013-new-os-1.jpg]]
+![](01013-new-os-1.jpg)
 
 下一步的页面里，显示正在重装系统，同时，会生成一个根用户的密码（root password），把这个密码记录下来。——如果只是按照本站教程，在搬瓦工的网页里自建梯子，应该是用不到这个密码的；但如果你有更高级的需求，需要自行远程登录 VPS 服务器，这个密码是必须的。
 
-![[01014-new-os-2.jpg]]
+![](01014-new-os-2.jpg)
 
 在上面的页面，点击 Go Back 后，会显示安装进度，几分钟后安装完毕。
 
-![[01015-new-os-3.jpg]]
+![](01015-new-os-3.jpg)
 
-重装系统完毕后，进入 Main control，查看系统是否处于 Running 状态。
+安装完毕后，进入 Main control，查看系统是否处于 Running 状态。
 
-![[01015-new-running.jpg]]
+![](01015-new-running.jpg)
 
 ### 进入 VPS 的命令行界面
 
@@ -138,7 +136,7 @@ tags = [
 
 就可以进入下一阶段，复制命令，安装梯子软件。
 
-![[01016-root-shell.jpg]]
+![](01016-root-shell.jpg)
 
 #### 或者，使用专门的 ssh 软件登录 VPS
 
@@ -152,7 +150,7 @@ tags = [
 
 一共有 6 行命令，在 root # 提示符后面，复制下面的命令，然后按回车键执行。直到提示符再次出现，复制运行下一条命令。6 行命令的运行效果大致如图：
 
-![[0300-commands.jpg]]
+![](0300-commands.jpg)
 
 1. 更新系统软件
 

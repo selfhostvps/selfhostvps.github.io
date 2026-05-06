@@ -88,11 +88,14 @@ ssh new_user_name@123.123.123.123
 
 使用新用户登录后，运行一些系统管理员级别的命令时，需要在命令前面加上 sudo，然后输入你的当前用户密码（不是 root 密码），才能执行。系统在几分钟内，不会连续要求每次都输入 sudo 密码。
 
-### 4. 安装 UFW 防火墙
+### 4. 安装防火墙：ufw 和 Fail2Ban
+
+- ufw 是管理系统端口的防火墙；
+- 如果一个外部 ip 频繁地使用错误密码尝试登录 VPS，Fail2Ban 会自动把这个 ip 暂时封禁。
 
 ```
-# 安装 ufw 防火墙（可能 Ubuntu 已经安装了）
-sudo apt install ufw -y
+# 安装
+sudo apt install -y ufw fail2ban
 
 # 只允许这些端口接收互联网访问
 sudo ufw allow 22,80,443/tcp
@@ -105,15 +108,7 @@ sudo ufw enable
 - 80，http 访问端口
 - 443，https 访问端口
 
-### 5. 安装 Fail2Ban
-
-如果一个外部 ip 频繁地使用错误密码尝试登录你的 VPS，Fail2Ban 会自动把这个 ip 暂时封禁。
-
-```
-sudo apt install fail2ban -y
-```
-
-### 6. 一些并不是必须，但推荐进行的设置
+### 5. 一些并不是必须，但推荐进行的设置
 
 设置 VPS 的时区，输入命令后在界面中选择地区：
 
@@ -127,15 +122,16 @@ sudo dpkg-reconfigure tzdata
 sudo hostnamectl set-hostname SHORT_NAME
 ```
 
-### 7. 安装一些常用的基本工具
+### 6. 安装一些常用的基本工具
+
+安装一些本站教程之后会用到的基本工具，其中一些已经预装在官方的 Ubuntu 系统里，但有些 VPS 服务商的 Ubuntu 版本并没有，
 
 ```
-# 安装 crontab，运行计划任务的工具。似乎有些 Ubuntu 没有预装这个
-sudo apt-get install -y cron
-
-# 安装 7z 压缩程序
-sudo apt-get install -y p7zip-full
+sudo apt-get install -y cron 7zip 
 ```
+
+- cron，运行计划任务的工具
+- 7zip，7z 压缩程序
 
 ---
 

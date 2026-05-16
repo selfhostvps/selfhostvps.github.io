@@ -44,7 +44,7 @@ tags = [
 
 ```
 services:
-  server:
+  gitea:
     image: docker.gitea.com/gitea:1.26.1
     container_name: gitea
     environment:

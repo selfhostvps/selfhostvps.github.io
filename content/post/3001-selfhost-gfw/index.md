@@ -11,7 +11,7 @@ tags = [
 
 本文介绍的自建翻墙方法，在 2026.6.8 之前仍然测试有效。 
 
-## 介绍. 如何简单地自建梯子翻墙的教程
+## 0.介绍：如何简单地自建梯子翻墙的教程
 
 这是一篇教程，面向非技术人士，讲述如何用最简单的流程，自行购买海外服务器，自建梯子翻墙。
 
@@ -40,7 +40,7 @@ tags = [
 
 ---
 
-## 1. 购买海外服务器
+## 1.购买：海外服务器
 
 首先，买哪一家的服务器，需要考虑的因素。如果只是用来建翻墙梯子，只需要考虑四点：
 
@@ -86,7 +86,7 @@ tags = [
 
 ---
 
-## 2. 初始化服务器
+## 2.登录：初始化服务器
 
 ### 进入搬瓦工的管理界面
 
@@ -151,7 +151,7 @@ tags = [
 
 ---
 
-## 3. 在 VPS 安装翻墙服务
+## 3.安装：复制 6 行命令，在 VPS 安装翻墙服务
 
 本文的翻墙教程，使用 Reality 技术，和之前的翻墙技术相比，更加隐蔽，省略了自己购买、验证域名的步骤。关键的程序，采用了 [wulabing 制作](https://github.com/wulabing/xray_docker/tree/master/reality)的 Docker 程序包，让安装过程更为简单。
 
@@ -204,7 +204,7 @@ vless://07e947d3-0028-47e5-a761-c706203a9781@123.123.123.123:8765?encryption=non
 ```
 
 
-## 4. 如何在电脑和手机上使用翻墙账号
+## 4.使用：如何在电脑和手机上使用翻墙账号
 
 并不是所有常见翻墙软件，都支持本文生成的翻墙账号（譬如著名的 SSR 小火箭，就还没有支持最新的 vless reality 协议）。本文只是简单地列出了，各个平台的一些可用的工具；并不能列举所有。
 
@@ -235,7 +235,7 @@ vless://07e947d3-0028-47e5-a761-c706203a9781@123.123.123.123:8765?encryption=non
 
 - 刚刚提过的 v2rayN（[官网](https://v2rayn.2dust.link/)，[github](https://github.com/2dust/v2rayn)），支持 Windows、Linux、MacOS，可从 github [直接下载 apk](https://github.com/2dust/v2rayN/releases) 安装包，具体哪个平台下载哪个安装包，可以参见[官网的说明](https://github.com/2dust/v2rayN/wiki/Release-files-introduction)。具体使用教程可以[参见这篇文章](https://v2rayn.org/)中的 "剪贴板导入教程" 部分，复制上面生成的 vless:// 地址，在软件中从剪切板导入。
 
-## 备注
+## 5.备注
 
 1. 这篇教程面向单纯购买 VPS 只是为了翻墙的用户，对 Linux / Docker 有经验的用户，可以根据自己需要更改（关键只是第 5 条命令而已），参照本站的《[自建翻墙 - 高级篇](/post/5507-selfhost-gfw-docker-compose/)》，使用更加便于管理的 docker compose，也可以参考 [wulabing 的 Dockerfile 文件](https://github.com/wulabing/xray_docker/blob/master/reality/Dockerfile)，自行编译更安全的版本。
 2. 可以在一台 VPS 上，同时运行多个翻墙程序（每个翻墙容器消耗 20MB 内存，同时运行十几个，还是没问题的），每个翻墙程序有各自的端口和账号，以便和不同的人分享。需要创建多个程序的步骤：
@@ -257,7 +257,7 @@ docker cp xray_reality_8766:/config_info.txt ./ && cat config_info.txt
 docker stop xray_reality_8766
 ```
 
-## 其它
+## 6.其它
 
 ### 检查 VPS 的 ip 是否被封
 

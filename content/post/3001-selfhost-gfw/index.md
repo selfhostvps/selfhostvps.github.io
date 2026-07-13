@@ -64,14 +64,14 @@ tags = [
 
 更高一档的[服务器，年费 $169.99 或季付 $49.99](https://bandwagonhost.com/order/ecommerce/Los%20Angeles/USCA_9)，同样每月 1TB 流量，机器性能也不变；但速度更快，可以在全球 12 个机房切换，尤其是一些具备 [CN2 GIA 线路](https://bandwagonhost.com/cn2gia-vps.php)的机房，连通中国大陆的网速更快。不差钱的用户可以考虑。但是
 
-1. 首先，**不建议买机房在香港的服务器**，虽然香港的网速可能更快一点，但要记住，香港也是不能用 ChatGPT 的……
+1. 首先，**不建议买机房在香港的服务器**，虽然香港的网速可能更快一点，但是，香港仍然存在着相当程度的网络封禁。很多和[香港时代革命](https://zh.wikipedia.org/zh-hk/%E5%8F%8D%E5%B0%8D%E9%80%83%E7%8A%AF%E6%A2%9D%E4%BE%8B%E4%BF%AE%E8%A8%82%E8%8D%89%E6%A1%88%E9%81%8B%E5%8B%95)相关的网站，[被香港封禁](https://www.bbc.com/zhongwen/trad/chinese-news-55729016)。以及，很多 AI 厂商（譬如 OpenAI）并不对香港提供服务，翻墙到香港仍然不能使用 ChatGPT ……
 2. 那些连中国网速更快的 [CN2 GIA 机房](https://bandwagonhost.com/cn2gia-vps.php)，也是很多商用机场的优选机房。在中国大陆严打翻墙的时期，可能因为商用机场的 ip 被查封，而导致附近的你的 ip 也被查封，所以还不如躲远一些……其实，最便宜的年费 $49.99 的 VPS，个人上网确实足够用了。
 
-另外，关于搬瓦工的优惠码和邀请码：
+另外，**关于搬瓦工的优惠码和邀请码**：
 
 >上网搜 搬瓦工优惠码，在付款时输入，有大概 6% 的优惠；
 >
->邀请其它人注册购买搬瓦工，可以获得你的下线付款的 22% 的提成，还是很多的！**本站的邀请码**链接为：[https://bandwagonhost.com/aff.php?aff=80635](https://bandwagonhost.com/aff.php?aff=80635)  欢迎大家通过我们的链接注册搬瓦工。本站获得的提成收入，将全部用于为国内需要翻墙的社群提供援助。读者注册后，也可以在 [Affiliate 页面](https://bandwagonhost.com/affiliates.php)开通提成功能，再去邀请其他人，但要注意身份保密。
+>邀请其它人注册购买搬瓦工，可以获得你的下线付款的 22% 的提成，还是很多的！**本站的邀请码**链接为：[https://bandwagonhost.com/aff.php?aff=80635](https://bandwagonhost.com/aff.php?aff=80635)  欢迎大家通过我们的链接注册搬瓦工。本站获得的提成收入，将**全部用于为国内需要翻墙的社群提供援助**。读者注册后，也可以在 [Affiliate 页面](https://bandwagonhost.com/affiliates.php)开通提成功能，再去邀请其他人，但要注意身份保密。
 
 具体购买的过程，大家应该自己看英文界面，就能搞定吧？
 

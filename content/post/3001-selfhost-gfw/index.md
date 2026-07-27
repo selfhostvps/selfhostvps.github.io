@@ -67,8 +67,6 @@ tags = [
 1. 首先，**不建议买机房在香港的服务器**，虽然香港的网速可能更快一点，但是，香港仍然存在着相当程度的网络封禁。很多和[香港时代革命](https://zh.wikipedia.org/zh-hk/%E5%8F%8D%E5%B0%8D%E9%80%83%E7%8A%AF%E6%A2%9D%E4%BE%8B%E4%BF%AE%E8%A8%82%E8%8D%89%E6%A1%88%E9%81%8B%E5%8B%95)相关的网站，[被香港封禁](https://www.bbc.com/zhongwen/trad/chinese-news-55729016)。以及，很多 AI 厂商（譬如 OpenAI）并不对香港提供服务，翻墙到香港仍然不能使用 ChatGPT ……
 2. 那些连中国网速更快的 [CN2 GIA 机房](https://bandwagonhost.com/cn2gia-vps.php)，也是很多商用机场的优选机房。在中国大陆严打翻墙的时期，可能因为商用机场的 ip 被查封，而导致附近的你的 ip 也被查封，所以还不如躲远一些……其实，最便宜的年费 $49.99 的 VPS，个人上网确实足够用了。
 
-不同的海外机房，在中国大陆的不同地区，访问速度并不一致。[这个网站](https://www.bandwagonhost.net/test-ip)提供了搬瓦工不同的机房的速度测试。如果购买后发生机房连接变慢的情况，也可以考虑更换机房（最便宜的每年 $49.99 方案，不能更换机房）。
-
 另外，**关于搬瓦工的优惠码和邀请码**：
 
 >上网搜 搬瓦工优惠码，在付款时输入，有大概 6% 的优惠；
@@ -78,7 +76,7 @@ tags = [
 具体购买的过程，大家应该自己看英文界面，就能搞定吧？
 
 1. 进入网站 https://bandwagonhost.com/ （需要翻墙）；
-2. 选择[最初级的产品（Basic VPS）](https://bandwagonhost.com/order/basic)，然后选择机房和数据中心，选哪一个都差别不大（不要选香港），[洛杉矶这个](https://bandwagonhost.com/order/basic/Los%20Angeles/USCA_2)用的大公司多，口碑好一点；
+2. 选择[最初级的产品（Basic VPS）](https://bandwagonhost.com/order/basic)，然后选择机房和数据中心（建议不要选香港），[洛杉矶这个](https://bandwagonhost.com/order/basic/Los%20Angeles/USCA_2)用的大公司多，口碑好一点。但是不同的海外机房，在中国大陆的不同地区，访问速度并不一致。[这个网站](https://www.bandwagonhost.net/test-ip)提供了搬瓦工不同的机房的速度测试，可以先测一下，选个网速快的；
 3. 选第一行年费 $49.99 的方案，加入购物车；
 4. 在购物车里可以输入优惠码 Promotional Code，验证优惠码后，进入 Checkout；
 5. 填写注册信息，需要一个有效的电子邮件地址，其它姓名住址，乱填也可以；

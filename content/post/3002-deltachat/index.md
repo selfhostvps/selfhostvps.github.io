@@ -41,6 +41,14 @@ DeltaChat 相对于其它聊天软件的优点：
 	- 从[官方网站](https://github.com/deltachat/deltachat-desktop/releases)下载 .exe 程序（需翻墙）后，可以复制给墙内他人
 - 更多平台（如 Linux）请参考[官方网站](https://delta.chat/en/download)和[官方 Github](https://github.com/deltachat/deltachat-desktop/releases)（需翻墙）
 
+当前最新版本 v2.59.1 的官网安装包链接：
+
+- 苹果电脑 .dmg 文件： https://github.com/deltachat/deltachat-desktop/releases/download/v2.59.1/DeltaChat-2.59.1-universal.dmg
+- Windows 电脑 .exe 文件：
+	- 安装版： https://github.com/deltachat/deltachat-desktop/releases/download/v2.59.1/DeltaChat-2.59.1-Setup.x64.exe
+	- 便携版： https://github.com/deltachat/deltachat-desktop/releases/download/v2.59.1/DeltaChat-2.59.1-Portable.x64.exe
+- 安卓手机 .apk 文件： https://github.com/deltachat/deltachat-android/releases/download/v2.59.1/deltachat-gplay-release-2.59.1.apk
+
 DeltaChat 有多种语言的界面，但不能在程序里选择语言，只能和手机或电脑的默认语言一致。本文的攻略主要参照安卓手机上的 DeltaChat 的中文界面。其它设备应该大致相似。
 
 ## 3. 注册新账号
@@ -61,8 +69,6 @@ DeltaChat 有多种语言的界面，但不能在程序里选择语言，只能�
 - 方法 1. 如果在安装了 DeltaChat 的手机或电脑上，使用浏览器，只需要点击按钮【Get a ... chat profile】，就会自动打开 DeltaChat 程序，根据提示输入你的名称，点击【同意并创建新账号】，用户就创建好了。
 - 方法 2. 如果在另外一台电脑或手机上使用浏览器，可以用 DeltaChat 扫描二维码来创建新账号。打开 DeltaChat → 创建新账号 → 使用其他服务器 → 扫描邀请码，扫描浏览器上的二维码，根据提示输入你的名称，点击【同意并创建新账号】，用户就创建好了。
 - 注意，注册时【输入您的名称】，并不是唯一的账号 id，只是显示的昵称，以后可以随意更改。账号 id 是系统自动生成的，无法更改。
-
-![](dl02-main.jpg)
 
 ## 4. 使用
 

@@ -94,7 +94,7 @@ VIKUNJA_SERVICE_ENABLEREGISTRATION=1
 更安全的方法，是通过 docker 内部的 vikunja 命令，直接创建用户（参见官方的[命令行文档](https://vikunja.io/docs/cli/#user-create)）：
 
 ```
-sudo docker exec vps-vikunja /app/vikunja/vikunja user create --username user1 --email=mail@example.com --password password1
+sudo docker exec vps-vikunja /app/vikunja/vikunja user create --username user1 --email mail@example.com --password password1
 ```
 
 所有用户都是普通的平级用户，除了使用命令行外，没有能够管理其它用户的管理员用户。更高级的管理员和用户群组功能，需要付费购买 [Vikunja Pro](https://vikunja.io/docs/pro/) License 才能使用。

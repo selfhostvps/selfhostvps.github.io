@@ -21,7 +21,7 @@ tags = [
 	- 内存 < 200 MB
 	- Docker Image：250 MB
 	- 本地存储：0
-- 当前最新版本：1.26.1
+- 当前最新版本：1.27.3
 - 默认 docker 端口号：3000 & 22
 - 本网站分配的端口号：5511 & 5512
 - 备份重要性：高
@@ -45,7 +45,7 @@ tags = [
 ```
 services:
   gitea:
-    image: docker.gitea.com/gitea:1.26.1
+    image: docker.gitea.com/gitea:1.27
     container_name: gitea
     environment:
       - USER_UID=1000
@@ -56,7 +56,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
-      - "5511:3000"
+      - "127.0.0.1:5511:3000"
 # 如果不需要通过 ssh 使用 git，可以省略下面的代码
       - "5512:22"
     networks:

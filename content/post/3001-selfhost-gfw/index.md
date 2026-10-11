@@ -9,7 +9,7 @@ tags = [
   no_date = false
 +++
 
-本文介绍的自建翻墙方法，在 2026.9.19 之前仍然测试有效（偶尔过来手动更新一下日期 ^^）。 
+本文介绍的自建翻墙方法，在 2026.10.12 之前仍然测试有效（偶尔过来手动更新一下日期 ^^）。 
 
 ## 0.介绍：如何简单地自建梯子翻墙的教程
 
@@ -222,6 +222,7 @@ vless://07e947d3-0028-47e5-a761-c706203a9781@123.123.123.123:8765?encryption=non
 - 所以，苹果手机唯一的方法，大概是先去弄个海外的苹果账号，就可以在苹果商店下载这些翻墙程序：
 	- v2box，[官网？教程](https://v2rayn.org/)，[下载地址](https://apps.apple.com/en/app/v2box-v2ray-client/id6446814690)。有广告，据说休眠时也会掉电量，但翻墙功能本身，似乎比其它软件更好用一些。
 	- v2RayTun，[官网](https://v2raytun.com/)，[下载地址](https://apps.apple.com/en/app/v2box-v2ray-client/id6446814690)。
+	- 最近新出的 Anywhere Proxy，群友反映比上面两个好用，[下载地址](https://apps.apple.com/us/app/anywhere-proxy/id6758235178)。
 
 另外，如果你在家里的局域网（wifi）使用 iphone 或 ipad，而 wifi 里有其它电脑。可以在其它电脑上配置翻墙软件后，让 iphone 连接同一 wifi 里的电脑进行翻墙。大致的教程可以[看这篇帖子](https://github.com/bannedbook/fanqiang/blob/master/ios/fqByLan.md)。最新的 PC 端的 v2rayN 软件，允许其它设备一起翻墙的开关在：Settings - Core: basic settings - Allow connections from the LAN
 

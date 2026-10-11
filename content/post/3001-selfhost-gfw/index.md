@@ -235,6 +235,7 @@ vless://07e947d3-0028-47e5-a761-c706203a9781@123.123.123.123:8765?encryption=non
 如果你使用的是 ARM 架构（Apple silicon）的 Mac 电脑，那么理论上来讲，任何手机上的 iOS 程序，也都可以在电脑使用。同时，也有专门为电脑设计的客户端：
 
 - 刚刚提过的 v2rayN（[官网](https://v2rayn.2dust.link/)，[github](https://github.com/2dust/v2rayn)），支持 Windows、Linux、MacOS，可从 github [直接下载 apk](https://github.com/2dust/v2rayN/releases) 安装包，具体哪个平台下载哪个安装包，可以参见[官网的说明](https://github.com/2dust/v2rayN/wiki/Release-files-introduction)。具体使用教程可以[参见这篇文章](https://v2rayn.org/)中的 "剪贴板导入教程" 部分，复制上面生成的 vless:// 地址，在软件中从剪切板导入。
+- 有个 v2rayu 也可以用，但不是开源软件，大家酌情。[英文官网](https://en.v2rayu.org/)很清爽，[中文官网](https://v2rayu.org/)有详细教程但广告超级多（（
 
 ## 5.备注
 

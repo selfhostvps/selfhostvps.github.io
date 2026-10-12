@@ -70,6 +70,8 @@ services:
       - mariadb_data:/var/lib/mysql
     networks:
       - network_database # 加入预设的数据库共享网络
+volumes:
+  mariadb_data: # 存储数据的 docker volume
 networks:
   network_database:
     external: true

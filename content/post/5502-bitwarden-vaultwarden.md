@@ -47,7 +47,7 @@ services:
     volumes:
       - ./vw-data/:/data/
     ports:
-      - 5502:80
+      - "127.0.0.1:5502:80"
 ```
 
 

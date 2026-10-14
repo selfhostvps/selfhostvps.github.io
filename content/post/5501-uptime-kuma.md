@@ -32,7 +32,7 @@ services:
     volumes:
       - ./data:/app/data
     ports:
-      - "5501:3001"
+      - "127.0.0.1:5501:3001"
 ```
 
 **在 Nginx conf 配置文件中添加：**

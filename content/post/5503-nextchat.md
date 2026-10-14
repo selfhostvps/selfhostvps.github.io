@@ -39,7 +39,7 @@ services:
     image: yidadaa/chatgpt-next-web:v2.16.1
     restart: always
     ports:
-      - 5503:3000
+      - "127.0.0.1:5503:3000"
     environment:
       # 可以设置多个密码，用逗号分隔
       - CODE=password1,password2,password3

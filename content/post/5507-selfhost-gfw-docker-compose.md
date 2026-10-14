@@ -66,8 +66,6 @@ tags = [
 
 **docker-compose.yml**
 
-“#” 下方的代码，是按照本站 docker 篇的设定，[修复了 docker 暴露端口的问题](/post/2006-docker/#docker-%E6%9A%B4%E9%9C%B2%E7%AB%AF%E5%8F%A3%E7%9A%84%E9%97%AE%E9%A2%98)后，专门添加的对外暴露端口的网络。如果你的 vps 没有进行这方面的设置，可以直接忽略 # 下面的代码。
-
 ```
 services:
   xray_reality_5507:
@@ -78,12 +76,6 @@ services:
       - 5507:443
     environment:
       - EXTERNAL_PORT=5507
-# --- 以下的代码，让容器处于可以向外暴露端口的 docker 网络 ---
-    networks:
-      - network_expose
-networks:
-  network_expose:
-    external: true
 ```
 
 启动 docker compose 后，允许下面的命令，就可以看到生成的 vless reality 翻墙账号了。
@@ -179,8 +171,6 @@ sudo docker run --rm ghcr.io/xtls/xray-core:latest uuid
 
 **docker-compose.yml**
 
-“#” 下方的代码，是按照本站 docker 篇的设定，[修复了 docker 暴露端口的问题](/post/2006-docker/#docker-%E6%9A%B4%E9%9C%B2%E7%AB%AF%E5%8F%A3%E7%9A%84%E9%97%AE%E9%A2%98)后，专门添加的对外暴露端口的网络。如果你的 vps 没有进行这方面的设置，可以直接忽略 # 下面的代码。
-
 ```
 services:
   xray_core_5508:
@@ -192,12 +182,6 @@ services:
       - ./config.json:/usr/local/etc/xray/config.json:ro
     ports:
       - "5508:5508/tcp"
-# --- 以下的代码，让容器处于可以向外暴露端口的 docker 网络 ---
-    networks:
-      - network_expose
-networks:
-  network_expose:
-    external: true
 ```
 
 在 Nginx 的任何已有域名（也可以新分配一个域名）的配置文件内部，添加

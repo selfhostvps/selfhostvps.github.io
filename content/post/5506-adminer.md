@@ -67,7 +67,7 @@ services:
     image: adminer
     restart: always
     ports:
-      - 5506:8080
+      - "127.0.0.1:5506:8080"
     container_name: vps-adminer
     networks:
       - network_database #加入预设的数据库共享网络

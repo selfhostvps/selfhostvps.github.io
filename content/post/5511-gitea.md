@@ -57,13 +57,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     ports:
       - "127.0.0.1:5511:3000"
-# 如果不需要通过 ssh 使用 git，可以省略下面的代码
-      - "5512:22"
-    networks:
-      - network_expose
-networks:
-  network_expose:
-    external: true
+      - "5512:22" # 如果不需要通过 ssh 使用 git，可以省略这一行
 ```
 
 **Nginx conf 配置文件（[官网样例](https://docs.gitea.com/administration/reverse-proxies#nginx)）：**

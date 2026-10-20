@@ -43,7 +43,7 @@ weight = 1
     - [性能监测 uptime-kuma](/post/5501-uptime-kuma/)
     - rsshub
     - 日记 memos
-    - [任务管理 vikunja](/post/5512-vikunja/)
+    - [任务管理 vikunja](/post/5513-vikunja/)
 	- [版本管理 gitea](/post/5511-gitea/)
 	- [NextChat，个人 AI 浏览器界面](/post/5503-nextchat/)
     - [adminer，从网页访问和管理 vps 数据库](/post/5506-adminer/)

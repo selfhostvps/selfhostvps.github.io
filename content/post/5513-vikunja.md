@@ -16,8 +16,8 @@ tags = [
 - 中文版：有
 - 开销：
 	- 内存：~ 30 MB
-- 当前最新版本：2.5.0
-- 本网站分配的端口号：5512
+- 当前最新版本：2.7.0
+- 本网站分配的端口号：5513
 - 数据备份级别：高
 
 ## 安装
@@ -29,7 +29,7 @@ Vikunja 官网提供了非常详细的[自建安装指引](https://vikunja.io/in
 ```
 /DOCKERS/vikunja       # docker compose 项目目录
 ├── files              # 储存附件的文件夹
-├── root_pw.txt        # 储存 SQLite 数据库的文件夹
+├── db                 # 储存 SQLite 数据库的文件夹
 └── docker-compose.yml # 配置文件
 ```
 
@@ -46,19 +46,19 @@ sudo chown 1000 files db
 ```
 services:
   vikunja:
-    image: vikunja/vikunja:2.5.0
+    image: vikunja/vikunja:2.7.0
     container_name: vps-vikunja
     user: 1000:1000
     environment:
-    # 随机的长密钥，可以用命令 openssl rand -hex 32 生成
-    VIKUNJA_SERVICE_JWTSECRET: 233ee0405171cd1e6bc21df719eff92fcbf4
-    # 为 vikunja 分配的域名网址，要以 / 结尾
-    VIKUNJA_SERVICE_PUBLICURL: https://vikunja.example.com/
-    # 是否允许新用户注册
-    VIKUNJA_SERVICE_ENABLEREGISTRATION: 0
-    VIKUNJA_DATABASE_PATH: /db/vikunja.db
+      # 随机的长密钥，可以用命令 openssl rand -hex 32 生成
+      VIKUNJA_SERVICE_JWTSECRET: 233ee0405171cd1e6bc21df719eff92fcbf4
+      # 为 vikunja 分配的域名网址，要以 / 结尾
+      VIKUNJA_SERVICE_PUBLICURL: https://vikunja.example.com/
+      # 是否允许新用户注册
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: 0
+      VIKUNJA_DATABASE_PATH: /db/vikunja.db
     ports:
-    - 127.0.0.1:5512:3456
+    - 127.0.0.1:5513:3456
     volumes:
     - ./files:/app/vikunja/files
     - ./db:/db
@@ -76,9 +76,10 @@ server {
     ssl_certificate_key /ADMIN/https-certs/all.example.com.private.key;
 
     location / {
-        proxy_pass http://localhost:5512;
+        proxy_pass http://localhost:5513;
         client_max_body_size 20M;
     }
+}
 ```
 
 ## 使用

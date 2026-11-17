@@ -242,23 +242,11 @@ vless://07e947d3-0028-47e5-a761-c706203a9781@123.123.123.123:443?encryption=none
 ## 5.备注
 
 1. 这篇教程面向单纯购买 VPS 只是为了翻墙的用户，对 Linux / Docker 有经验的用户，可以根据自己需要更改（关键只是第 5 条命令而已），参照本站的《[自建翻墙 - 高级篇](/post/5507-selfhost-gfw-docker-compose/)》，使用更加便于管理的 docker compose，也可以参考 [wulabing 的 Dockerfile 文件](https://github.com/wulabing/xray_docker/blob/master/reality/Dockerfile)，自行编译更安全的版本。
-2. 可以在一台 VPS 上，同时运行多个翻墙程序（每个翻墙容器消耗 20MB 内存，同时运行十几个，还是没问题的），每个翻墙程序有各自的端口和账号，以便和不同的人分享。需要创建多个程序的步骤：
+
+2. 如果需要停止翻墙程序，只需要根据相应的容器名称，运行：
 
 ```
-# 1. 选择一个新的端口号，譬如 8766，配置防火墙
-ufw allow 8766
-
-# 2. 类似命令 5，修改端口号、和 --name 后面的容器名称 xray_reality_8766
-EXTERNAL_PORT=8766 && docker run -d --name xray_reality_2 --restart=always --log-opt max-size=100m --log-opt max-file=3 -p $EXTERNAL_PORT:443 -e EXTERNAL_PORT=$EXTERNAL_PORT wulabing/xray_docker_reality:latest
-
-# 3. 类似命令 6，使用新的容器名称，获得新的翻墙账号
-docker cp xray_reality_8766:/config_info.txt ./ && cat config_info.txt
-```
-
-3. 如果需要停止其中任何一个翻墙程序，只需要根据相应的容器名称，运行：
-
-```
-docker stop xray_reality_8766
+docker stop xray_reality
 ```
 
 ## 6.其它

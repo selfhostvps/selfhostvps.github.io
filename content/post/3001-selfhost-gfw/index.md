@@ -9,7 +9,8 @@ tags = [
   no_date = false
 +++
 
-本文介绍的自建翻墙方法，在 2026.11.06 之前仍然测试有效（偶尔过来手动更新一下日期 ^^）。 
+> 2026-11-17 的更新说明：这个月出了很多状况。本文介绍的搬瓦工全面涨价，最便宜的每年 $49 的服务器变成了 $99，如果本月黑五之后情况没有好转，本文会更新其它 vps 供应商的自建翻墙攻略。
+> 今天 APEC 开会，又封禁了一大批翻墙设施。本文介绍的 reality 翻墙技术，一些默认的设置已经有很大风险被防火墙封禁，需要进行更详细的设置。本文在之后几天会对相关命令进行更新改进。有自建翻墙需求的读者，请稍候几天。 
 
 ## 0.介绍：如何简单地自建梯子翻墙的教程
 
@@ -157,11 +158,9 @@ tags = [
 
 本文的翻墙教程，使用 Reality 技术，和之前的翻墙技术相比，更加隐蔽，省略了自己购买、验证域名的步骤。关键的程序，采用了 [wulabing 制作](https://github.com/wulabing/xray_docker/tree/master/reality)的 Docker 程序包，让安装过程更为简单。
 
-一共有 6 行命令，在 root # 提示符后面，复制下面的命令，然后按回车键执行。直到提示符再次出现，复制运行下一条命令。6 行命令的运行效果大致如图：
+一共有 6 行命令，在 root # 提示符后面，复制下面的命令，然后按回车键执行。直到提示符再次出现，复制运行下一条命令。运行效果大致如图（一些命令已经过修改，和演示图片上的有些不一致，以下文的命令为准）：
 
 ![](0300-commands.jpg)
-
-下面的 6 条命令中，3 和 5 里面的 8765，是系统的端口号，可以自行改成 2000 ~ 20000 之间的任意数字，但需要在所有地方**保持一致**。如果这台 VPS 没有运行其它服务，只是用来翻墙，把这些命令里的**端口号 8765 改成 443**，理论上的长期隐蔽性会更高一些，但在我们的实际使用中，这一点区别并不是很关键。
 
 1. 更新系统软件
 
@@ -178,7 +177,7 @@ apt-get -f install ufw fail2ban
 3. 启动、配置防火墙。
 
 ```
-ufw enable && ufw allow 8765
+ufw enable && ufw allow 443
 ```
 
 4. 安装 Docker，一个可以简化安装过程的工具
@@ -190,7 +189,7 @@ curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 5. 安装梯子程序
 
 ```
-EXTERNAL_PORT=8765 && docker run -d --name xray_reality --restart=always --log-opt max-size=100m --log-opt max-file=3 -p $EXTERNAL_PORT:443 -e EXTERNAL_PORT=$EXTERNAL_PORT wulabing/xray_docker_reality:latest
+EXTERNAL_PORT=443 && docker run -d --name xray_reality --restart=always --log-opt max-size=100m --log-opt max-file=3 -p $EXTERNAL_PORT:443 -e EXTERNAL_PORT=$EXTERNAL_PORT wulabing/xray_docker_reality:latest
 ```
 
 6. 获得翻墙账号
@@ -202,7 +201,7 @@ docker cp xray_reality:/config_info.txt ./ && cat config_info.txt
 
 最终的账号，长相是这个样子的
 ```
-vless://07e947d3-0028-47e5-a761-c706203a9781@123.123.123.123:8765?encryption=none&security=reality&type=tcp&sni=www.apple.com&fp=chrome&pbk=L7ILrfR3VuLhHIn6CjCMlWrfTj9JsMJoHUQooqxc4R8&flow=xtls-rprx-vision#123.123.123.123-wulabing_docker_vless_reality_vision
+vless://07e947d3-0028-47e5-a761-c706203a9781@123.123.123.123:443?encryption=none&security=reality&type=tcp&sni=www.apple.com&fp=chrome&pbk=L7ILrfR3VuLhHIn6CjCMlWrfTj9JsMJoHUQooqxc4R8&flow=xtls-rprx-vision#123.123.123.123-wulabing_docker_vless_reality_vision
 ```
 
 

@@ -186,10 +186,10 @@ ufw enable && ufw allow 443
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 ```
 
-5. 安装梯子程序
+5. 安装梯子程序，命令里的两处 goodtimer.net，建议改成其它和服务器 ip 地址临近的非热门的网站。如何找到这样的网站，请看这篇帖子（还没写好，很快就写出来！）
 
 ```
-EXTERNAL_PORT=443 && docker run -d --name xray_reality --restart=always --log-opt max-size=100m --log-opt max-file=3 -p $EXTERNAL_PORT:443 -e EXTERNAL_PORT=$EXTERNAL_PORT wulabing/xray_docker_reality:latest
+EXTERNAL_PORT=8776 && docker run -d --name xray_reality --restart=always --log-opt max-size=100m --log-opt max-file=3 -p $EXTERNAL_PORT:443 -e EXTERNAL_PORT=$EXTERNAL_PORT -e DEST=goodtimer.net:443 -e SERVERNAMES=goodtimer.net wulabing/xray_docker_reality:latest
 ```
 
 6. 获得翻墙账号

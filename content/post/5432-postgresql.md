@@ -14,7 +14,7 @@ tags = [
 
 和 MariaDB / MySQL 一样，PostgreSQL（或者叫 Postgres）也是常用的关系性数据库之一，被一些常用的 VPS 服务使用（如 Miniflux、Mastodon…）。现有的 PostgreSQL 项目创建于 1996 年，作为独立的开源项目被长期维护。
 
-## PostgreSQL 的安装
+## 安装
 
 **docker compose 目录结构**
 
@@ -63,7 +63,7 @@ networks:
 - 默认的超级用户名为 postgres，也可以用 POSTGRES_USER 参数自行指定。
 - 端口号（ports）的部分，暂时注释掉了。因为通常不会有什么机会，从容器外部访问 PostgreSQL（譬如使用非 docker 的 adminer 管理界面）。如果需要的话，可以把注释去掉。
 
-## PostgreSQL 数据库的使用，创建数据库，创建用户
+## 数据库的使用，创建数据库，创建用户
 
 进入 psql 命令行管理页面的方式如下。退出 psql 的命令为 `\q 然后 Enter` ，或者直接按 `Ctrl d`
 

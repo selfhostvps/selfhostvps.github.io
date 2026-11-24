@@ -1,7 +1,7 @@
 
 +++
 title = "数据库 PostgreSQL"
-date = "2026-010-16"
+date = "2026-10-16"
 tags = [
     "docker","database","backup"
 ]

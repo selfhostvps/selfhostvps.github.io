@@ -25,7 +25,7 @@ weight = 1
 - [初始安装 1. 网站服务器 Nginx & PHP](/post/2003-install-nginx/)
 - [初始安装 2. Docker 的安装、设置、基本操作](/post/2006-docker/)
 - [一个基本的 Docker - Nginx 网站服务样例](/post/2005-service-deploy-example/)
-- 数据库安装：[MySQL / MariaDB](/post/3306-mysql-mariadb/) 、PostgreSQL
+- 数据库安装：[MySQL / MariaDB](/post/3306-mysql-mariadb/) 、[PostgreSQL](/post/5432-postgresql/) 、[adminer](/post/5506-adminer/) 管理界面
 - 数据导出和备份
 
 3. 常用自建项目
